@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数值</title>
+    <script>
+      /* 数值（Number）：
+            - 在JS中所有的整数和浮点数都是Number类型
+            - JS中数值并不是无限大的，当数值超过一定范围后会显示近似值或科学计数法
+            - Infinity是一个特殊的数值表示无穷
+            - NaN也是一个数值，表示非法的数值
+            - 所以在JS中进行精度比较高的运算时要十分注意 */
+      let a = Infinity,
+        b = 1 - "a";
+      console.log(a);
+      console.log(b);
+      // 小数计算是不精确的
+      let c = 0.1 + 0.2;
+      console.log(c);
+
+      /* 大整数（BigInt）
+            - 用来表示一些比较大的整数
+            - 以n结尾，上限就是内存上限，几乎“无限大” */
+      a = 9999999999999999999999999999999999999999n;
+      console.log(a);
+
+      /* 其他进制数字：
+            - 二进制：0b
+            - 八进制：0o
+            - 十六进制：0x 
+            打印出来还是十进制 */
+      a = 0b1010;
+      console.log(a);
+      a = 0o4521;
+      console.log(a);
+      a = 0xa71c;
+      console.log(a);
+    </script>
+  </head>
+</html>

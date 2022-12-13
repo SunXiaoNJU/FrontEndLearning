@@ -13,8 +13,6 @@
 - The `lang` attribute of the `<html>` tag declares the **language** of the Web page
 - The `title` attribute defines some extra information about an element
 
-
-
 ### headings
 
 | Tag          | Description                          |
@@ -22,8 +20,6 @@
 | <html>       | Defines the root of an HTML document |
 | <body>       | Defines the documents' body          |
 | <h1> to <h6> | Defines HTML headings                |
-
-
 
 ### paragraphs
 
@@ -34,8 +30,6 @@
 | <br>  | Inserts **a single line break**              |
 | <pre> | Defines **pre-formatted** text               |
 
-
-
 ### style
 
 - Use the `style` attribute for styling HTML elements
@@ -44,8 +38,6 @@
 - Use `font-family` for text fonts
 - Use `font-size` for text sizes
 - Use `text-align` for text alignment
-
-
 
 ### formatting
 
@@ -59,6 +51,3 @@
 - `<ins>` - Inserted text
 - `<sub>` - Subscript text
 - `<sup>` - Superscript text
-
-
-
