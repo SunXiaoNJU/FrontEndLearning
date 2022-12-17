@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>字符串</title>
+    <script>
+      let string = '这是一个"字符串"';
+      console.log(string);
+      //  转义字符 \
+      let newString = '这是\n一个"字符串"';
+      console.log(newString);
+
+      /* 模板字符串 
+        - 使用返单引号`来表示，这样就不受换行约束了。
+        - 模板字符串中可以 嵌入变量 */
+      let name = "JS";
+      let model = `Hello, 
+this is ${name}`;
+      // 这样打印清晰直观
+      console.log(`model = ${model}`);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类型转换</title>
+    <script>
+        /* 类型转换是将一种数据类型转换为其他类型（字符串、数值、布尔值）
+        转换为字符串：
+            1.调用toString()方法
+                - xxx = xxx.toString()
+                - 由于null和undefined中没有toString()，所以对这两个调用toString()时会报错
+            2.调用String()函数
+                - xxx = String(xxx)
+                - 对所有都适用，null和undefined直接转换为"null"和"undefined",
+                    其他等价于调用toString()方法
+            
+        转换为数值：
+            1.使用Number()函数
+                - 字符串： 
+                    - 如果字符串是合法数字，则会自动转换
+                    - 如果字符串不是合法数字，则转换为NaN
+                    - 如果字符串是空串或纯空格的字符串，转换为0
+                - 布尔值：
+                    - true转换为1，false转换为0
+                - null 转换为 0
+                - undefined 转换为 NaN
+            2.专门用来将字符串转换为数值的函数
+                - parseInt() 将一个字符串转换为一个整数
+                    - 解析时，会自左向右读取一个字符串，直到读取到字符串中所有的有效数字
+                    - 可以临时用来对数字进行取整
+                - parseFloat() 将一个字符串转换为一个浮点数
+                    - 解析时，会自左向右读取一个字符串，直到读取到字符串中所有的有效小数
+
+        转换为布尔值：
+            数字：
+                - 0和NaN转换为false
+                - 其余是true
+            字符串：
+                - 空串转换为false
+                - 其余是true
+            null 和 undefined 都转换为false
+            对象：
+                对象转换为true
+            - 总结：所有表示空性的没有的错误的值都会转换为false:
+                0、NaN、空串、null、undefined、false
+         */
+    </script>
+</head>
+<body>
+</body>
+</html>
