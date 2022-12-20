@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>非、与、或</title>
+    <script>
+      /* ! 逻辑非
+            - ! 对一个值进行非运算，对布尔值取反 */
+      let a = "res";
+      a = !!a; // 隐式转换为布尔值
+      console.log(a);
+
+      /* 
+        && 逻辑与
+            - 对两个值进行与运算，关键是找false，找到就返回
+            - 当&&左右都为true时，则返回true，否则返回false
+            - 与运算是短路的与，如果第一个值是false，则不看第二个值
+            - 对非布尔值进行与运算，它会转换为布尔值进行运算，
+              但是最终会返回原值
+                - 如果第一个值是true，则返回第二个值
+                - 如果第一个值是false，则返回第一个值
+        */
+      let result = 1 && 2; // 2
+      result = 1 && 0; // 0
+      result = null && NaN; // null
+      console.log(result);
+
+      /* || 逻辑或
+            - 对两个值进行或运算，关键是找true，找到就返回
+            - 当||左右存在true时，则返回true，否则返回false
+            - 或运算也是短路的或，如果第一个值是true，则不看第二个值
+            - 对非布尔值进行或运算，它会转换为布尔值进行运算，
+              但是最终会返回原值
+                - 如果第一个值是true，则返回第一个值
+                - 如果第一个值是false，则返回第二个值
+       */
+      result = "res" || 2; // "res"
+      result = null || NaN; // NaN
+      result = 0 || "hello"; // hello
+      console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>
