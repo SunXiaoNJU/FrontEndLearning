@@ -21,9 +21,9 @@
       function fn() {
         "use strict"; // 函数中使用严格模式
         if (this === undefined) {
-          console.log("fn", this);
+          console.log("undefinded fn", this);
         } else {
-          console.log("window.fn", this);
+          console.log("fn", this);
         }
       }
       fn();
@@ -81,6 +81,14 @@
         },
       };
       obj2.sayHello();
+
+      // call apply 可以来指定函数中的this
+      fn.call(obj2);
+      fn.apply();
+      /* 如果方法需要传参，call放在第一个参数后面，apply放在一个数组内成为第二个参数。
+      fn.call(obj, 1, 2, 3);
+      fn.apply(obj2, [1, 2, 3]); 
+      */
     </script>
   </head>
   <body></body>
