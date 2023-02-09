@@ -15,13 +15,26 @@
         实参都会存储到arguments对象中，可以通过该对象直接访问实参。
         
     */
-    function fn() {
-      console.log('length:', arguments.length);
+    function sum() {
+      // 实现不限参数计算
+      console.log("number of para:", arguments.length);
+      let res = 0;
       for (const v of arguments) {
-        console.log(v);
+        res += +v;
       }
+      return res;
     }
-    fn(1, 2, 12);
+    console.log(sum(1, 2, 12));
+
+    // 可变参数可以接收任意数量的实参，并存储到一个数组中返回
+    function sum2(...args) {
+      let res = 0;
+      for (const num of args) {
+        res += num;
+      }
+      return res;
+    }
+    console.log(sum2(1, 3, 6));
   </script>
   <body></body>
 </html>
