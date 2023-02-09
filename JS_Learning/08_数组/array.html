@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <script>
+    "use strict";
+    // 任何类型都能成为数组的对象，不过数组不同于对象，尽量同一类型
+    const arr = [
+      1,
+      "hello",
+      true,
+      null,
+      function () {
+        console.log("function");
+      },
+      "hello",
+    ];
+    // 遍历数组
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+    // for-of语句，用于遍历可迭代对象
+    for (let el of arr) {
+      document.write("<em>", el, "<br>");
+    }
+    // onload在确保HTML加载完毕后再执行包裹代码
+    onload = () => {
+      // string也是可迭代对象
+      for (let value of "forof") {
+        console.log(value);
+      }
+    };
+    /*Array破坏性方法：
+      push()
+        New elements to add to the array.  
+        例：arr.push('123')
+      pop()
+        Removes the last element from an array and returns it. If the array is empty, undefined is returned and the array is not modified. 
+        例：arr.pop()
+      unshift()
+        Inserts new elements at the start of an array, and returns the new length of the array. 
+        例：arr.unshift('123')
+      shift()
+        Removes the first element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+        例：arr.shift()
+      splice()  (非常好用的方法！！)
+        Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+        对原数组进行删除(不写 items 即可)、替换、插入(deleteCount = 0 即可)
+        例：arr.splice(start: number, deleteCount?: number, ...items)
+      reverse()
+        Reverses the elements in an array in place. This method mutates the array and returns a reference to the same array.
+        例：arr.reverse()
+      sort()
+        sort默认升序排列（会改变原数组）。
+        sort按照Unicode编码进行排序，对数字排序可能会得到错误的结果！
+        可以传入回调函数作为参数，来指定排序规则
+        例：arr.sort((a, b) => b - a); // 降序排列，哪怕数字也不会出错
+    */
+
+    /* Array非破坏性方法：(不全，详细的去mdn查Array)
+        - Array.isArray()  静态方法，判断是否为数组。
+          例：Array.isArray([1,2,3]) // true
+        - at()  实例方法，可以根据实例中的索引获取对应元素，可以接收负索引(区别于[])。  
+          例：arr.at(-2) // null
+        - concat() 用于连接两个或多个数组。
+          例：let arr2 = arr.concat([1, 2, 3], ['a', 'b', 'c'])
+        - indexOf() 获取元素在数组中<第一次>出现的索引，找不到返回-1。
+          例：arr.indexOf("hello") // 1
+          arr.indexOf("hello", 3) // 5  起始位置从默认第一个更改到第三个
+        - lastIndexOf() 从后往前查，与indexOf相反。
+        - join() 将一个数组中的元素连接为一个字符串。()内为连接符，默认为空。
+          例：let result = arr.join(',')
+        - map() 根据当前数组生成一个新数组，需要传入回调函数，返回值成为新元素
+          例：arr.map(ele => "<li>" + ele + "</li>")  // 将每一个元素改成标签，简化操作
+        - slice() 用来截取数组，左闭右开，索引可以为负。
+          例：let result = arr.slice(0, 2)
+          result = arr.slice(-3)  // 第二个参数省略不写，则截取到最后
+    
+
+      补充：深拷贝(deep copy)与浅拷贝(shallow copy)
+
+      浅拷贝(数组)：只复制<一层>，如果存储的是对象，那么对象中存储的内容并没有被复制
+        - slice() 省略slice所有参数，进行浅拷贝
+          例：const shallowCopy = arr.slice()
+        - ...(展开运算符) 可以将一个数组中的元素展开到另一个数组中或作为函数参数传递
+          例：const sc2 = [...arr]
+          let arr2 = ['age', ...arr, 123]
+
+          let nums = [10, 20, 30]
+          function sum(a, b, c) { return a + b + c }
+          let result = sum(...nums)
+
+      浅拷贝(对象)：
+        - ...(展开运算符)
+          例：const obj3 = {name: 'Tom', ...obj, age: 20}
+        - Object.assign() 将第二个参数复制(添加)进第一个参数中，返回第一个参数
+          例：const obj1 = {name:'jack', age:18}
+          const ob2 = Object.assign({}, obj1)
+
+      总结：...可以同时满足数组和对象的浅拷贝，推荐使用！
+
+      深拷贝：不仅复制对象本身，还复制对象中的属性(因为性能问题，通常不用)
+        - structuredClone() 专门用来深拷贝的方法
+        例：const deepCopy = structuredCopy(arr)
+    */
+  </script>
+  <style>
+    body {
+      background: linear-gradient(
+        to right,
+        rgb(15, 248, 174),
+        rgb(28, 152, 248) 40%,
+        rgb(241, 237, 237)
+      );
+    }
+  </style>
+  <body></body>
+</html>

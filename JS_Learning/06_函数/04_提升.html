@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>提升</title>
+    <script>
+      /* 变量的提升
+            - 使用var声明的变量，会在所有代码执行前被【声明】
+            - let声明的变量也会提升，但是赋值之前解释器禁止访问
+
+        函数的提升
+            - 使用函数声明创建(function开头)的函数，会在其他代码执行前被创建，
+              所以我们可以在函数声明前调用函数
+
+        变量和函数的提升同样适用于函数作用域 
+        */
+      console.log(a); // undefined
+      var a = "123";
+
+      // 练习
+      console.log(b); // 2  提升之后执行被赋值的函数b()，同时变量b被声明
+      var b = 1;
+      console.log(b); // 1
+      function b() {
+        alert(2);
+      }
+      console.log(b); // 1   函数b已经被提升了，所以此时b依然是1
+      var b = 3;
+      console.log(b); // 3
+      var b = function () {
+        alert(4);
+      };
+      console.log(b); // 4
+      var b;
+      console.log(b); // 4  b的声明早已被提升，所以上一行代码是无效代码
+    </script>
+  </head>
+  <body></body>
+</html>

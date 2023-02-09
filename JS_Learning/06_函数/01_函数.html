@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数</title>
+    <script>
+      /* 函数(Function)
+              - 函数是一个存储代码的对象，它具有其他对象的所有功能
+              - 调用函数传递实参时，传递的不是变量而是变量里存储的值
+
+              - 函数定义：
+                  - 函数声明
+                      function 函数名(形参) {
+                          语句...
+                      }
+                  - 函数表达式
+                      const 变量 = function(形参) {
+                          语句...
+                      }
+                  - 箭头函数
+                      const 变量 = (形参) => {
+                          语句...
+                      }
+
+      */
+      let strFun = "fn1 函数声明";
+      function fn1(str) {
+        console.log(str);
+      }
+      // 传递实参
+      fn1(strFun);
+
+      const fn2 = function (a = "fn2 函数表达式") {
+        console.log(a);
+      };
+      // 使用形参默认值
+      fn2();
+
+      const fn3 = (a) => {
+        a();
+      };
+      // 函数作为参数，动态传递
+      fn3(() => console.log("fn3", "箭头函数"));
+
+      /* 函数调用完毕return返回值会作为结果返回
+         <任何值>都可以作为返回值使用（包括函数和对象）
+         如果return后不跟任何值，则相当于返回undefined
+         return一执行，函数立即结束。
+       */
+      function fn4(params) {
+        return 2 * +params;
+      }
+      console.log("fn4", fn4("-4"));
+
+      const fn5 = () => {
+        console.log("fn5");
+        return fn5;
+      };
+      // 返回值为函数，可以一直调用
+      fn5()()();
+
+      /* 箭头函数特有的省略return，返回值直接写在箭头后面
+            - 如果直接在箭头后面设置对象字面量为返回值，必须用()括起来 
+      */
+      const fn6 = (a, b) => a + b;
+      console.log("fn6", fn6(334, 456));
+      const fn7 = () => ({ name: "Tom" });
+      console.log("fn7", fn7());
+    </script>
+  </head>
+  <body>
+    <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/best-free-stock-photo-websites.jpg?v=1619036042&width=1024"
+    width="1500" />
+  </body>
+</html>

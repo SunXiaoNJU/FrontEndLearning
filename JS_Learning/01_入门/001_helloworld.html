@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三种输出形式</title>
+    <!-- JS  -->
+    <script>
+      "use strict";
+      // 警告框中输出
+      alert("Alert!");
+      // 控制台中输出
+      console.log("log");
+      // 在网页中输出
+      document.write("Hello World");
+      function mOver(obj) {
+        obj.innerHTML = "Hello world!";
+      }
+      function mOut(obj) {
+        obj.innerHTML = "把鼠标移到上面";
+      }
+    </script>
+  </head>
+  <style>
+    body {
+      /* 渐变色 */
+      background: linear-gradient(
+        to right,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet
+      );
+    }
+  </style>
+  <body>
+    <div
+      onmouseover="mOver(this)"
+      onmouseout="mOut(this)"
+      onclick="alert('Surprise!')"
+    >
+      把鼠标移到上面
+    </div>
+  </body>
+</html>

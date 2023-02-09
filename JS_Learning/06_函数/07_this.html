@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This</title>
+    <script>
+      /* this
+        - 函数执行时，JS解释器每次都会传递一个隐形的参数this
+        - 通过this可以在方法中引用调用方法的对象
+        - this指向一个对象，谁调用函数this就指向谁
+          · 以函数形式调用时，this指向的是window
+          · 以方法的形式调用时，this指向的是调用方法的对象
+          . 箭头函数除外
+      */
+      // 全局严格模式，开发时尽量开启
+      "use strict";
+
+      function fn() {
+        "use strict"; // 函数中使用严格模式
+        if (this === undefined) {
+          console.log("fn", this);
+        } else {
+          console.log("window.fn", this);
+        }
+      }
+      fn();
+      window.fn();
+      /*
+      非严格模式下this是window，严格模式下this => undefined
+      非严格模式下等价于window.fn()
+      严格模式下只有使用window.fn()时 this=>window，否则 this => undefined
+      */
+
+      const obj = {
+        name: "Jack",
+        test: function () {
+          console.log("name:", this.name); // this的好处是name修改test中对应的值也跟着修改
+          return function () {
+            console.log("obj -> function -> rt function", this); // window/undefined
+          };
+        },
+        fn,
+      };
+      obj.test()();
+      obj.fn();
+
+      /* 箭头函数中的this
+            - 箭头函数没有自己的this，它的this由外层作用域决定
+            - 箭头函数的this和它的调用方式无关
+            - 因此开发中多用箭头函数，避免this的改变
+       */
+      const fn2 = () => {
+        console.log("fn2", this); // 总是window
+      };
+      fn2();
+
+      const obj2 = {
+        // sayHello:function(){}的简化写法
+        sayHello() {
+          const fn = () => {
+            console.log("obj2-->", this); // this => obj2
+          };
+          fn(); // 箭头函数无视函数调用
+
+          function t() {
+            this; // this => window
+          }
+          t(); // function函数调用this指向window
+        },
+        // 对象属性
+        t: {
+          fn: () => {
+            this; // this => window
+          },
+          fn2() {
+            this; // this => t
+          },
+        },
+      };
+      obj2.sayHello();
+    </script>
+  </head>
+  <body></body>
+</html>

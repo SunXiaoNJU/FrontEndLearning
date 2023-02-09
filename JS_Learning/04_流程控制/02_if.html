@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>If</title>
+  </head>
+  <script>
+    /* if语句中，如果条件式不是布尔值，会转换为布尔值然后再执行
+     */
+    if (100) {
+      console.log(123);
+    }
+
+    // propmt() 提示框输入 可以获取用户输入的内容。返回值为string
+    let num = +prompt("please input an integer:");
+    if (num === 10) {
+      document.write("10");
+    } else if (num < 10) {
+      alert("small");
+    } else {
+      alert("large");
+    }
+  </script>
+  <body></body>
+</html>

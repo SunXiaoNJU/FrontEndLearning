@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象</title>
+    <script>
+      /* 对象
+            - 对象是JS中的一个复合数据类型，它相当于一个容器，
+            在对象中可以存储各种不同类型数据，我们称为属性。
+            - 属性名：
+                - 通常是一个字符串，所以属性名可以是任何值。但是如果属性名太特殊，
+                就需要使用[]来设置
+                - 也可以使用symbol作为属性名来添加属性
+                    获取这种属性，也必须使用symbol
+                    使用symbol添加的属性，通常是那些不希望被外界访问的属性 
+                - 使用[]去操作属性值时，可以使用变量
+            - 属性值
+                - 对象的属性值可以是任意类型，也可以是一个对象
+
+            - 向对象中添加属性：
+                对象.属性 = 属性值
+            - 读取对象属性：
+                对象.属性
+                - 如果读取的是一个不存在的属性，不会报错，而是undefined
+            
+            - 对象属于可变类型，可以任意的增加删除修改对象中的属性
+              - 当对两个对象进行==或===比较时，比较的是<内存地址>。
+            
+            修改对象与修改变量
+              - 修改对象，所有指向改对象的变量都会受到影响。
+                - 例如：obj.name = "jack"
+              - 修改变量，只影响当前变量。
+                - 例如：obj = null (如果obj为const，此处会报错)
+              - 建议新建对象使用const, const只是限制变量不可以修改
+              （变量指向的内存地址不可以变），但是对象依然可以修改！
+            */
+
+      // 创建对象(两种方法)
+      const obj = Object();
+      const newObj = {
+        age: 20,
+        name: "Jinna",
+        ["gender"]: "woman",
+        hello: {
+          name: "lan",
+          age: 30,
+          gender: "woman",
+        },
+      };
+
+      // 添加属性
+      obj.school = "NJU";
+      obj.name = "Tom";
+      obj["newObj"] = newObj;
+      let g = "gender";
+      obj[g] = "man";
+      console.log(obj.newObj.age);
+
+      // 修改属性
+      obj.newObj.age = 21;
+      console.log(obj.newObj.age);
+
+      // 删除属性
+      delete obj.school;
+      delete obj[g];
+      console.log(obj);
+      /* 
+      // 取出属性(两种方法)
+       console.log(obj.age);
+       console.log(obj["age"]); 
+       */
+
+      // symbol
+      let mySymbol = Symbol();
+      obj[mySymbol] = "通过symbol添加的属性";
+      // 输出时会用Symbol()隐藏掉symbol名，想要使用必须要获取具体的symbol名
+      console.log(obj[mySymbol]);
+      console.log("obj:", obj);
+
+      /* 
+      函数也可以成为一个对象的属性
+      方法(method)
+        - 当一个对象的属性指向一个函数，那么我们就称这个函数是该对象的方法，
+          调用函数就称为调用对象的方法。
+      */
+      obj.sayHello = () => {
+        // 调用document对象的write方法
+        document.write("Hello");
+      };
+      obj.sayHello();
+
+      /* in 运算符
+            - 用来检查对象中是否含有某个属性
+            - 语法：属性名 in obj
+            - 如果有返回true，没有返回false
+            - symbol属性是不可被枚举的 */
+      for (let propName in obj) {
+        console.log(propName, obj[propName]);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*  
+       闭包：闭包就是能访问到外部函数作用域中变量的函数。
+       使用场景：需要隐藏一些不希望被被人访问的内容时。
+       构成闭包的条件：
+        - 函数的嵌套
+        - 内部函数要引用外部函数的变量
+        - 内部函数要作为返回值返回
+        闭包的原理：闭包利用的就是词法作用域(函数作用域)
+        闭包的局限：闭包相较于类比较占用内存，需要执行次数较少时使用闭包，
+        需要创建大量实例的使用类class。
+       */
+
+      /* 为了防止被修改，num不想成为全局变量，但是需要记录函数的调用次数，
+       所以将num写在outer中，函数以及num++写在返回函数中。 */
+      function outer() {
+        let num = 0;    // num位于outer函数作用域中
+        return () => {
+          num++;
+          console.log(num);
+        };
+      }
+      // 对newFn而言，每调用一次newFn，num都会++。
+      let newFn = outer(); // 独立闭包
+      newFn();
+      newFn();
+      // 直接调用每次都会新建一个num，这样就失效了
+      outer()();
+      outer()();
+    </script>
+  </head>
+  <body></body>
+</html>

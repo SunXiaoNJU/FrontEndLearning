@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    /* arguments
+        - arguments和this一样是函数中的一个隐形参数
+        - arguments是一个类数组对象（伪数组），可以通过索引来读取元素，
+        可以通过for循环/for-of来遍历，但是不可以使用数组方法。
+        - arguments用来存储函数的实参，无论用户是否定义形参，
+        实参都会存储到arguments对象中，可以通过该对象直接访问实参。
+        
+    */
+    function fn() {
+      console.log('length:', arguments.length);
+      for (const v of arguments) {
+        console.log(v);
+      }
+    }
+    fn(1, 2, 12);
+  </script>
+  <body></body>
+</html>

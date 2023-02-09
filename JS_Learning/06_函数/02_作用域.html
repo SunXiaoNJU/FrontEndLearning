@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作用域</title>
+  </head>
+  <script>
+    /* 
+    作用域：
+        全局作用域
+            - 在网页运行时创建，网页关闭时消耗
+            - 所有直接编写到script标签中的代码都位于全局作用域中
+            - 全局作用域中的变量是全局变量，可以在任意位置访问
+
+        局部作用域
+            - 块作用域
+                - 是一种局部作用域，只能在块内部访问
+                - 在代码块执行时创建，代码块执行完毕就销毁
+
+            - 函数作用域
+                - 也是一种局部作用域
+                - 函数调用每一次都会产生一个新的作用域
+                - 函数作用域在函数创建时就已经确定，与调用位置无关
+
+    作用域链
+        - 当我们使用一个变量时，JS解释器优先在当前的代码块中寻找变量；
+          如果没找到，则去上一层代码块中寻找。
+    */
+    // 全局
+    let a = "全局a";
+
+    {
+      // 局部
+      let a = "第一代码块a";
+      {
+        let a = "第二代码块a";
+        // 就近原则
+        console.log(a);
+      }
+    }
+
+    function outer() {
+      let a = "outer a";
+      // 这里fn的作用域是全局作用域，所以a是全局的a，而非outer中定义的a
+      fn();
+    }
+
+    const fn = () => {
+      console.log(a);
+    };
+
+    outer();
+  </script>
+  <body></body>
+</html>

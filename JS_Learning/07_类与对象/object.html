@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><Object></Object></title>
+  </head>
+  <script>
+    "use strict";
+    class Person {
+      gender = "confidential";
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      // 存储在__proto__(原型对象)中
+      sayHello() {
+        console.log("sayHello");
+        console.log(this.__proto__);
+      }
+    }
+    const Jack = new Person();
+    Jack.sayHello();
+
+    console.log(Person.prototype);
+
+    // instanceof 检查一个对象是否为一个类的实例
+    console.log(Jack instanceof Person);
+
+    /*
+    in 无论属性在对象自身还是原型中，都会返回true
+    hasOwn 检查对象的属性是否在自身中
+     */
+    console.log("sayHello" in Jack); // true
+    console.log(Object.hasOwn(Jack, "sayHello")); // false
+  </script>
+  <body></body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>代码块</title>
+  </head>
+  <script>
+    /* 
+        使用{}来创建代码块，可以对代码进行分组，
+        同一个组代码要么都执行，要么都不执行。
+
+        let 和 var
+            - let声明的变量没有变量提升，拥有暂时性死区(TDZ)，作用于块作用域。
+            - var声明的变量作用于全局作用域，没有块作用域，不拥有TDZ。
+        补充：暂时性死区（temporal dead zone，简称TDZ），
+        即代码块开始到变量声明语句完成之间的区域。
+    */
+    {
+      let a = 10;
+      console.log(a);
+    }
+    console.log(a); // 无法访问
+  </script>
+  <body></body>
+</html>

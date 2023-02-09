@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict";
+      // 实现src的全排列，返回数组
+      function arrangement(src) {
+        let array = [];
+        function fullArr(src, res) {
+          if (src.length === 0) array.push(res);
+          for (let i = 0; i < src.length; i++) {
+            fullArr(src.replace(src.charAt(i), ""), res + src.charAt(i));
+          }
+        }
+        src += ""; // src转换成string，增加容错
+        fullArr(src, "");
+        return array;
+      }
+
+      console.log(arrangement("rgb"));
+
+      // 汉诺塔
+      function hanoi(num, src, dst, buffer) {
+        if (num <= 0) return 0;
+        if (num === 1) {
+          console.log("move from", src, "to", dst);
+          return 1;
+        } else {
+          // 将上层n-1移动到缓冲区，底层n移动到目标区，再将缓冲区移动到目标区
+          return (
+            hanoi(num - 1, src, buffer, dst) +
+            hanoi(1, src, dst, buffer) +
+            hanoi(num - 1, buffer, dst, src)
+          );
+        }
+      }
+
+      console.log(hanoi(3, "src", "dst", "buffer"));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>变量的内存</title>
+    <title>Debug</title>
     <script>
-      /* 变量中并不存储任何值，而是存储值的内存地址！
-      例如'ohhh'的内存地址为0x11，那么a和b都是0x11的一个代称 */
-      let a = "ohhh";
-      let b = "ohhh";
+      console.log("first step");
+      debugger; // 相当于在代码中打了一个断点
+      console.log("second step");
+      // 第二种方法：在网页检查的源代码中选择需要打断点的行
     </script>
   </head>
+  <body></body>
 </html>
