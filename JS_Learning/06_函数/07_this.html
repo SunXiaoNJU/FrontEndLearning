@@ -82,12 +82,24 @@
       };
       obj2.sayHello();
 
+      // 补充一个值得注意的例子
+      let foo = {
+        bar: 10,
+        fn() {
+          console.log(this);
+          console.log(this.bar);
+        },
+      };
+      let fn1 = foo.fn;
+      fn1(); // window  undefined  这里就是fn1调用了fn，所以this指向的内容就发生了变化。
+      foo.fn(); // {bar:10, fn:f}  10
+
       // call apply 可以来指定函数中的this
       fn.call(obj2);
       fn.apply();
       /* 如果方法需要传参，call放在第一个参数后面，apply放在一个数组内成为第二个参数。
       fn.call(obj, 1, 2, 3);
-      fn.apply(obj2, [1, 2, 3]); 
+      fn.apply(obj2, [1, 2, 3]);
       */
     </script>
   </head>
