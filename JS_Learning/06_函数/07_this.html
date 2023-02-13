@@ -12,11 +12,10 @@
         - this指向一个对象，谁调用函数this就指向谁
           · 以函数形式调用时，this指向的是window
           · 以方法的形式调用时，this指向的是调用方法的对象
-          . 箭头函数除外
+          . 箭头函数this由外层作用域决定，无法被call、apply、bind修改
           . 通过call和apply调用的函数，它们的第一个参数就是函数的this
+          . 通过bind返回的函数，this由bind第一个参数决定（无法修改）
       */
-      // 全局严格模式，开发时尽量开启
-      "use strict";
 
       function fn() {
         "use strict"; // 函数中使用严格模式
@@ -28,7 +27,7 @@
       }
       fn();
       window.fn();
-      /*
+      /* 补充说明，在fn()中，
       非严格模式下this是window，严格模式下this => undefined
       非严格模式下等价于window.fn()
       严格模式下只有使用window.fn()时 this=>window，否则 this => undefined
@@ -82,6 +81,8 @@
       };
       obj2.sayHello();
 
+      // ---------------------------------------------------------------------------------------------------------------------------------
+
       // 补充一个值得注意的例子
       let foo = {
         bar: 10,
@@ -94,6 +95,8 @@
       fn1(); // window  undefined  这里就是fn1调用了fn，所以this指向的内容就发生了变化。
       foo.fn(); // {bar:10, fn:f}  10
 
+      // ---------------------------------------------------------------------------------------------------------------------------------
+
       // call apply 可以来指定函数中的this
       fn.call(obj2);
       fn.apply();
@@ -101,6 +104,16 @@
       fn.call(obj, 1, 2, 3);
       fn.apply(obj2, [1, 2, 3]);
       */
+
+      /* bind
+        - bind可以为新函数绑定this
+        - bind可以为新函数绑定参数
+      */
+      let obj_bind = (a, b, c) => {
+        console.log("this, a, b, c:", this, a, b, c);
+      };
+      const newFn = obj_bind.bind(fn, 10); // this绑定为fn, 第一位已经永久绑定为10
+      newFn(20, 30);
     </script>
   </head>
   <body></body>
