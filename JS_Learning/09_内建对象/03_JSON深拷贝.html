@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  const obj = {
+    name: "Jack",
+    age: 18,
+    gender: "man",
+    knowledge: {
+      book: "How to fetch a rich woman",
+    },
+  };
+
+  // 对obj进行浅拷贝
+  const obj1 = { ...obj };
+
+  // 利用JSON来完成深拷贝
+  const obj2 = JSON.parse(JSON.stringify(obj));
+  // 之前学习的深拷贝是通过structuredClone()来实现的。
+</script>

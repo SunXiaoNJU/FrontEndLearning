@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  /*Map
+    - Map 用来存储键值对结构的数据（key-value） 
+    - Object 就可以认为是一种键值对结构（a:b）
+    - Map和Object的主要区别：
+      - Object中的属性名只能是字符串或符号，如果传递了一个其他类型的属性名，JS解释器会自动将其转换为字符串。
+      - Map中任何类型的值都可以成为key
+      
+    属性和方法：
+      map.size() 获取map中键值对的数量
+      map.set(key, value) 向map中添加键值对
+      map.get(key) 根据key获取值
+      map.delete(key) 删除指定数据
+      map.has(key) 检查map中是否包含指定的键
+      map.clear() 删除所有的键值对
+  */
+  const map = new Map();
+  // 添加数据
+  map.set("name", "Jack");
+  map.set("age", 18);
+  map.set(undefined, null);
+  console.log(map);
+
+  // 取出数据
+  console.log(map.get("name"));
+
+  // 将map转换为数组
+  const arr = Array.from(map);
+  console.log(arr);
+  const arr0 = [...map]; // 与上面的转换等价，更简单好用一点
+  console.log(arr0);
+
+  // 将二维数组转化为map
+  const map2 = new Map([
+    ["name", "Jack"],
+    ["age", 18],
+    [{ person: "Jack", status: "Student" }, () => {}],
+  ]);
+
+  // for-of遍历map
+  for (const entry of map2) {
+    const [key, value] = entry; // 解构赋值(详见09-01)
+    // console.log(entry, key, value);
+  }
+
+  // 更简化的写法：
+  for (const [key, value] of map2) {
+    console.log(key, value);
+  }
+
+  // for-each遍历
+  map.forEach((value, key) => {
+    // console.log(value, key);
+  });
+
+  /*
+  map.keys() 获取map所有的key
+  map.values()  获取map所有的value
+  map.entries() 获取map所有的键值对
+  */
+</script>

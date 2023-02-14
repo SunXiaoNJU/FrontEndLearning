@@ -34,7 +34,11 @@
     age: 18,
     gender: "man",
   };
-  // 对象解构赋值
+  // 对象解构赋值，名称需要与对象一致
   let { name, age, gender } = obj;
   console.log(name, age, gender);
+
+  // 可以通过 : 来添加别名
+  let { name: myName, age: myAge, gender: myGender } = obj;
+  console.log(myName, myAge, myGender);
 </script>
