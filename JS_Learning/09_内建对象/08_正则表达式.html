@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // new RegExp() 可以接收两个参数，1. pattern: string 2. flags: string
+  let reg = new RegExp("\\w", "i"); // 遇到转义字符时，构造函数需要多写一个转义字符！
+  // 使用字面量来创建正则表达式
+  reg = /\w/i; // 与上面是等价的
+  console.log(reg, reg.test("RegExp")); // 返回true
+
+  /*
+   1. 在正则表达式中大部分字符可以直接写
+   2. | 在正则表达式中表示或，\ 作为转义字符
+   3. flags：i 表示忽略大小写  g 表示全局匹配
+   4. [] 表示或（字符集） [a-z] 表示任意的小写字母  [A-Z] 表示任意的大写字母  [a-zA-Z] 任意字母  [0-9] 任意数字
+   5. [^] 表示除了  [^a-z] 除了小写字母
+   6. . 表示除了换行符外的任意字符
+   7. 其他字符集
+     \w 任意字母数字字符，包括下划线  等价于[a-zA-Z0-9_]
+     \W 除了\w
+     \d 任意数字  等价于[0-9]
+     \D 除了\d
+     \s 匹配单个空白字符，包括空格、制表符、换页符、换行符和其他Unicode空格。
+     \S 除了\s
+   8. 开头和结尾
+     ^ 表示字符串的开头  例如：/^a/ 匹配开始位置a
+     $ 表示字符串的结尾  例如：/a$/ 匹配结尾位置a
+     /^abc$/ 只匹配abc，必须完全一致
+   */
+  reg = new RegExp("^[ab]cd$"); // acd 或 bcd
+  console.log(reg.test("acd")); // false
+
+  /* 量词
+     1. {m} 正好m个  {m, } 至少m个  {m,n} m-n个
+     2. + 一个以上，相当于{1,}
+     3. * 任意数量
+     4. ? {0,1}
+   */
+
+  // reg.exec(str) 返回数组  详见https://www.bilibili.com/video/BV1mG411h7aD/?p=130&spm_id_from=pageDriver&vd_source=ca216135ff0c9ffa5ed92ee30a750ca9
+  // pattern中通过()分组  可以在exec返回值中得到分组中的结果，配合flags:g可以进行全局匹配。
+
+  /* 练习： str = "dsafasfd18234923402sadfgjsaf19287542098asoifsoafds15298641038sadfsaf"
+   要求：筛选出str中的手机号。
+   */
+  let str =
+    "dsafasfd18234923402sadfgjsaf19287542098asoifsoafds15298641038sadfsaf";
+  let demand = new RegExp("\\d{11}", "g");
+  let res = demand.exec(str);
+  while (res) {
+    console.log(res[0]);
+    res = demand.exec(str); // 每一次exec都会寻找下一个匹配的结果
+  }
+</script>

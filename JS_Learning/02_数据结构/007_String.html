@@ -7,19 +7,43 @@
     <title>字符串</title>
     <script>
       //  转义字符 \
-      let newString = 'This is\na "String"';
+      let newString = 'This is\na "String"'; // \n 换行
       console.log(newString);
 
       /* 模板字符串 
         - 使用返单引号`来表示，这样就不受换行约束了。
-        - 模板字符串中可以 嵌入变量 */
-      let name = "JS";
+        - 模板字符串中可以 嵌入变量 
+      */
+      let name = "sunxiao";
       let modelString = `Hello, my name
 is ${name}, nice to meet you~`;
       // 这样打印清晰直观
       console.log(`modelString = ${modelString}`);
-      let n = 10
-      console.log(`${n}`);
+
+      /* String
+        - 属性和方法:
+          length 获取字符串的长度
+          string[索引] 获取指定位置的字符
+          for-of循环遍历字符
+
+          str.at() 根据索引获取字符，支持负索引
+          str.concat() 推荐用 + 更简单
+          str.includes() 用来检查字符串中是否包含某个内容，返回Boolean
+          str.indexOf() 查询，返回第一次出现的位置，否则-1
+          str.lastIndexOf() 查询，~最后一次~，~
+          str.endsWith() 检查一个字符串是否以指定内容结尾
+          str.startsWith() ~开头
+          str.padStart() 垫子，开头补齐
+          str.padEnd() 垫子，结尾补齐
+          str.replace() 替换第一个指定内容
+          str.replaceAll() 替换全部指定内容
+          str.slice() 截取
+          str.substring() 同上，更好用一些
+          str.split() 将一个字符串拆分成一个数组
+          str.toLowerCase() 小写
+          str.toUpperCase() 大写
+          str.trim() 去除前后空格 (还有trimStart和trimEnd)
+      */
     </script>
   </head>
   <body></body>

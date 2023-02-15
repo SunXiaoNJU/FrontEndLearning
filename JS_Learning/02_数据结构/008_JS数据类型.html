@@ -29,6 +29,21 @@
     */
       let s = Symbol(); // 调用Symbol()创建一个符号
       console.log(s);
+
+      /* 包装类
+      JS中一共有5个包装类，通过包装类可以将一个原始值包装为一个对象
+        String -> 字符串包装成String对象
+        Number -> 数值包装为Number对象
+        Boolean -> 布尔值包装为Boolean对象
+        BigInt -> 大整数包装为BigInt对象
+        Symbol -> 符号包装为Symbol对象
+
+      当我们对一个原始值调用方法或属性时，JS解释器会临时将原始值包装为对应的对象，
+      然后调用这个对象的属性或方法。
+      比如对一个数值使用toString方法，解释器会将数值先转换为Number包装类，再调用其中的toString方法。
+
+      由于原始值会被临时转换为对应的对象，所以对象中的方法都可以通过原始值直接调动。
+      */
     </script>
   </head>
   <body></body>

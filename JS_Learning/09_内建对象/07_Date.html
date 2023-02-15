@@ -9,7 +9,43 @@
   <body></body>
 </html>
 <script>
-    /* Date
-        - 
+  /* Date
+        - 在JS中所有的时间相关的数据都是由Date对象来创建的
+        - 对象的方法：
+            getFullYear() 获取年份(4位)
+            getMonth() 返回月份索引(0~11) 需要加1
+            getDate() 返回当前是几日
+            getDay() 返回当前日期是周几(0~6) 0表示周日
+
+            getTime() 返回当前日期对象的时间戳（自 1970-1-1 0:0:0 到当前时间所经历的毫秒数）
+            Date.now() 获取当前的时间戳
     */
+  let d = new Date(); // 创建的是当前时间的对象
+  console.log(d);
+
+  // 可以在Date()的构造函数中，传递一个表示时间的字符串
+  // 字符串格式：年-月-日 时：分：秒
+  d = new Date("2023-2-14 10:43:00");
+  // 另一种格式：new Date(年，月，日，时，分，秒，毫秒) 提醒：月份是索引(0~11)
+  d = new Date(2023, 1, 14, 10, 54, 49); // 2023-2-14 10:54:49
+  console.log(d);
+  console.log(d.getTime());
+
+  console.log(Date.now()); // 计算机底层记录的都是时间戳
+  // new Date() 参数如果只传入一个数字，会被识别成毫秒单位的时间戳。
+  // 比如new Date(2020) 就是1970-1-1 0:0:2 但中国是东八区，所以是08:00:02 GMT+0800 (中国标准时间)
+
+  /* 
+  toLocaleString()
+    - 可以将一个日期转换为本地时间格式的字符串 例：2023/2/14 10:54:49
+    - 参数：
+      1. 描述语言和国家信息的字符串 (zh-CN中文中国 zh-HK中文香港 en-US英文美国) (中文环境默认zh-CN)
+      2. 需要一个对象作为参数，在对象中可以通过对象的属性来对日期的格式进行配置。
+        dateStyle 日期风格
+        timeStyle 时间的风格
+      更多的参数定制查看mdn
+  */
+  console.log(
+    d.toLocaleString("en-US", { dateStyle: "full", timeStyle: "long" })
+  );
 </script>
