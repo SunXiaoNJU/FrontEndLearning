@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <span class="s1">hahaha</span>
+      <span class="s1">hahaha</span>
+      <span class="s1">hahaha</span>
+      <span class="s1">hahaha</span>
+      <span class="s1">hahaha</span>
+    </div>
+    <form class="form">
+      <input type="text" name="username" />
+      <input type="radio" name="gender" /> 男
+      <input type="radio" name="gender" /> 女
+    </form>
+    <script>
+      /*
+        元素节点对象（element）：
+          - 网页中，每一个标签都是一个元素节点
+          - 如何获得元素节点对象：
+            1. 通过document创建元素节点
+            2. 通过document获取元素节点
+          - 通过document获取：
+            document.getElementById()  根据Id获取一个元素
+            document.getElementsByClassName()  根据Class获取一组元素节点对象，返回的是类数组对象，会实时刷新。
+            document.getElementsByTagName()  根据标签名获取一组元素节点对象。（注：*是通配符，可以获取所有元素）
+            document.getElementsByName()  根据姓名获取一组元素节点对象，实时更新。主要用于form表单项
+                
+            document.querySelectorAll()  根据选择器去页面中查询元素（例如，div  .s1  #btn），注意它返回的类数组不会实时更新！
+            document.querySelector()  根据选择器去页面中查询第一个符合条件的元素
+
+            备注：最后两个很万能，推荐！ 但是要注意，前四个和后两个传入的参数有区别！！(例如，"s1"和".s1")
+
+          - 创建一个元素节点：
+            document.createElement()  根据标签名创建一个元素节点
+            
+        通过元素对象获取其他节点方法
+          element.childNodes  获取当前元素的子节点
+          element.dhildren  获取当前元素的子元素
+          element.firstElementChild  获取当前元素的最后一个子元素
+          element.nextElementSibling  获取当前元素的下一个兄弟元素
+          element.previousElementSibling  获取当前元素的前一个兄弟元素
+          element.tagName  获取当前元素的标签名
+    */
+      let spans = document.querySelectorAll(".s1");
+      console.log("spans.length", spans.length);
+      for (const ele of spans) {
+        ele.innerHTML = "哈哈哈";
+      }
+      // 每一个换行都是一个text，是空白的子节点
+      console.log(document.querySelector("div").childNodes);
+      // 实用的方法，仅包含子元素。
+      console.log(document.querySelector("div").children);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="username" id="in" value="Your name" />
+    <script>
+      /* 
+        属性节点（Attr）
+            - 在DOM中也是一个对象，通常不需要获取对象直接修改就可以。
+            - 如何操作属性节点：
+                方式一:
+                    读取：元素.属性名(注意，class属性需要使用className来读取)
+                        读取布尔值时会返回true或false
+                    修改：元素.属性名 = 属性值
+                方式二：
+                    读取：元素.getAttribute(属性名)
+                    修改：元素.setAttribute(属性名，属性值)
+                    删除：元素.removeAttribute(属性名)
+        */
+      const input = document.querySelector("[name=username]");
+      console.log(input.name);
+
+      input.setAttribute("disabled", ""); // 浏览器不管disabled的值是什么，只要检测到disabled就直接禁用
+    </script>
+  </body>
+</html>

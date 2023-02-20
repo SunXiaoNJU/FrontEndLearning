@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS的编写位置</title>
-    <!-- 1. 可以将JS编写在script的标签中 -->
-    <script>
-      document.write("JS");
-    </script>
-    <br />
-    <!-- 2. 可以通过script的src引入外部的js文件 -->
-    <script src="../JS/02_position.js"></script>
-    <br />
   </head>
   <body>
-    <!-- 3. 可以将js编写到指定的属性中，例如onclick，href，
+    <!-- 1. 可以将js编写到指定的属性中，例如onclick，href，
     还有一种是直接把href写在网页的地址栏里-->
     <button onclick="alert('不错呦')" onmousemove="alert('你干嘛~哎呦')">
       Can you click me ?
     </button>
     <br />
-
     <a href="javascript:alert('href js')">超链接</a>
+
+    <!-- 2. 可以将JS编写在script的标签中 -->
+    <script>
+      document.write("JS");
+    </script>
+    <!-- 3. 可以通过script的src引入外部的js文件 -->
+    <script src="../../JS/02_position.js"></script>
+
+    <!-- 补充一下文档加载知识：https://www.bilibili.com/video/BV1mG411h7aD?p=142&vd_source=ca216135ff0c9ffa5ed92ee30a750ca9 -->
   </body>
 </html>
