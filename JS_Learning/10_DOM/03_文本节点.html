@@ -14,17 +14,17 @@
       /*
         在DOM中，网页中所有的文本内容都是文本节点对象。
         我们可以直接通过元素来修改其中的文本:
-            修改文本的三个属性
-                element.textContent  获取或修改元素的文本内容
-                element.innerText  获取或修改元素的文本内容
-                    - 当字符串中有标签时，会自动对标签进行转义
-                    - 获取内容时会考虑css样式
-                element.innerHTML  获取或修改元素的html代码
-                    - 可以直接向元素中添加HTML代码
-                    - innerHTML插入内容时，有被xss注入的风险
-                    （例如，box1.innerHTML = "<script src="https://xxx/sss.js">"; 会被直接载入代码中，每一次加载都会调用这些代码）
-            实际使用时这三个区别不大，更推荐使用textContent
-        */
+          修改文本的三个属性
+            element.textContent  获取或修改元素的文本内容
+            element.innerText  获取或修改元素的文本内容
+              - 当字符串中有标签时，会自动对标签进行转义
+              - 获取内容时会考虑css样式
+            element.innerHTML  获取或修改元素的html代码
+              - 可以直接向元素中添加HTML代码
+              - innerHTML插入内容时，有被xss注入的风险
+              例如，box1.innerHTML = "<script src="https://xxx/sss.js">"; 会被直接载入代码中，每一次加载都会调用这些代码）
+        实际使用时这三个区别不大，更推荐使用textContent
+      */
       const box1 = document.querySelector(".box1");
       console.log(box1.textContent); // Here is box1.
       console.log(box1.innerText); // HERE IS BOX1.
