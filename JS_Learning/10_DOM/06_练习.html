@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>勾选框</title>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="prompt-outer">
+        <p id="prompt">
+          请选择你的科目：<input type="checkbox" id="check_all" /> 全选
+        </p>
+      </div>
+      <div class="hobbies-outer">
+        <input name="lesson" type="checkbox" id="Chinese" value="语文" /> 语文
+        <input name="lesson" type="checkbox" id="Math" value="数学" /> 数学
+        <input name="lesson" type="checkbox" id="English" value="英语" /> 英语
+        <input name="lesson" type="checkbox" id="Computer" value="计算机" />
+        计算机
+      </div>
+      <div class="btn-outer">
+        <button class="btn" id="all">全选</button>
+        <button class="btn" id="none">取消</button>
+        <button class="btn" id="reverse">反选</button>
+        <button class="btn" id="submit">提交</button>
+      </div>
+    </div>
+
+    <script>
+      /* 实现功能：1. 全选（按钮、CheckBox）  2. 取消  3. 反选  4. 提交 */
+      // 通过属性选择器获取所有CheckBox，包括check_all
+      const allCheckBox = document.querySelectorAll("[type=checkbox]");
+      // 所有的课程
+      const allLesson = document.querySelectorAll("[name=lesson]");
+
+      // check_all
+      const check_all = allCheckBox[0];
+      check_all.addEventListener("click", function () {
+        for (const input of allCheckBox) {
+          // 响应函数绑定给谁this就指向谁（箭头函数除外），其他的勾选框与check-all一致
+          input.checked = this.checked;
+        }
+      });
+
+      /* 单个勾选框：
+        1. 如果有一个CheckBox被取消了，check_all也应该被取消
+        2. 如果每一个CheckBox都被勾选了，check_all也应该被勾选
+      */
+      for (let lesson of allLesson) {
+        lesson.addEventListener("click", function () {
+          // 通过 伪类 获取被选中的CheckBox
+          const hasCheckedInput = document.querySelectorAll(
+            "[name=lesson]:checked"
+          );
+          check_all.checked = hasCheckedInput.length === allCheckBox.length - 1;
+        });
+      }
+
+      // 全选按钮，所有checked属性设为true
+      const allBtn = document.querySelector("#all");
+      allBtn.addEventListener("click", function () {
+        for (const input of allCheckBox) {
+          input.checked = true;
+        }
+      });
+
+      // 取消
+      const noneBtn = document.querySelector("#none");
+      noneBtn.addEventListener("click", function () {
+        for (const input of allCheckBox) {
+          input.checked = false;
+        }
+      });
+
+      // 反选
+      const reverseBtn = document.querySelector("#reverse");
+      reverseBtn.addEventListener("click", function () {
+        for (let index = 0; index < allCheckBox.length; index++) {
+          // 全选CheckBox调整
+          if (index === 0) {
+            allCheckBox[index].checked = true;
+            for (let j = 1; j < allCheckBox.length; j++) {
+              if (allCheckBox[j].checked) {
+                allCheckBox[index].checked = false;
+              }
+            }
+          }
+          // hobbies反选
+          else {
+            allCheckBox[index].checked = !allCheckBox[index].checked;
+          }
+        }
+      });
+
+      // 提交
+      const submitBtn = document.querySelector("#submit");
+      submitBtn.addEventListener("click", function () {
+        for (let index = 1; index < allCheckBox.length; index++) {
+          // 检查勾选情况，提交被勾选项的value
+          if (allCheckBox[index].checked) {
+            alert(allCheckBox[index].value);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

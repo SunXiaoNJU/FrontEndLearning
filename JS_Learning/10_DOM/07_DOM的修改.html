@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn01">button01</button>
+    <button id="btn02">button02</button>
+    <ul class="list01">
+      <li id="a">A</li>
+      <li id="b">B</li>
+      <li id="c">C</li>
+    </ul>
+    <script>
+      /*
+        点击按钮后向ul中添加一个新的D
+        有三种方法，推荐后两种。
+        */
+      const btn01 = document.querySelector("#btn01");
+      const list = document.querySelector(".list01");
+      btn01.addEventListener("click", function () {
+        // 创建一个li元素
+        const li = document.createElement("li");
+        // 向li中添加文本和id
+        li.textContent = "D";
+        li.id = "d";
+
+        // 方法一，appendChild 添加一个子节点
+        list.appendChild(li);
+
+        /*
+        insertAdjacentElement和insertAdjacentHTML可以向元素的任意位置添加元素
+        两个参数：1.添加的位置（4个）  2.添加的元素
+        beforeend：结束标签之前
+        afterend：结束标签之后
+        beforebegin：开始标签之前
+        afterbegin：开始标签之后
+         */
+        // 方法二
+        list.insertAdjacentElement("beforeend", li);
+        // 方法三，不需要创建element，直接插入即可。
+        list.insertAdjacentHTML("beforeend", "<li id='d'>D</li>");
+
+        // 删除元素
+        const d = document.querySelector("#d");
+        d.remove();
+      });
+
+      /*
+        点击按钮后将ul中的一个元素替换成一个新的元素
+        */
+      const btn02 = document.querySelector("#btn02");
+      btn02.addEventListener("click", function () {
+        // 将A替换成E
+        const a = document.querySelector("#a");
+        const li = document.createElement("li");
+        li.id = "e";
+        li.textContent = "E";
+        a.replaceWith(li);
+      });
+    </script>
+  </body>
+</html>
