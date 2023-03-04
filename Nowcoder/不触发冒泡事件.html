@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>nowcoder</li>
+    </ul>
+    <script type="text/javascript">
+      // 补全代码，要求在点击li元素的时候不触发ul的事件。
+      const li = document.querySelector("li");
+      li.onclick = function () {
+        // 阻止冒泡事件
+        event.stopPropagation();
+        // 阻止默认事件(例如，点击勾选不会选上)
+        event.preventDefault()
+      };
+    </script>
+  </body>
+</html>

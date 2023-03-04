@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      .topbranch {
+        width: 0px;
+        height: 0px;
+        /*
+            * TODO: 上枝叶效果
+            */
+        float: left;
+        border: 100px solid green;
+        /* 上右下左 */
+        border-color: transparent transparent green transparent;
+        margin: 0 0 0 100px;
+      }
+      .middleBranch {
+        width: 0px;
+        height: 0px;
+        /*
+            * TODO: 中枝叶效果
+            */
+        border: 200px solid green;
+        border-color: transparent transparent green transparent;
+      }
+      .base {
+        /*
+            * TODO: 树干效果
+            */
+        width: 70px;
+        height: 200px;
+        background-color: gray;
+        float: left;
+        margin-left: 165px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="topbranch"></section>
+    <section class="middleBranch"></section>
+    <section class="base"></section>
+  </body>
+</html>

@@ -19,6 +19,10 @@
       },
       "hello",
     ];
+    // 创建长度为5的数组
+    const arr_5 = [, , , , ,];
+    arr_5 = new Array(5);
+    arr_5 = Array("", "", "", "", "");
     // 遍历数组
     for (let i = 0; i < arr.length; i++) {
       console.log(arr[i]);
@@ -76,7 +80,7 @@
           例：let result = arr.join(',')
         map() 根据当前数组生成一个新数组，需要传入回调函数，返回值成为新元素
           例：arr.map(ele => "<li>" + ele + "</li>")  // 将每一个元素改成标签，简化操作
-        reduce() reduce() 方法对数组中的每个元素按序执行一个由您提供的 reducer 函数，
+        reduce() 对数组中的每个元素按序执行一个由您提供的 reducer 函数，
           每一次运行 reducer 会将先前元素的计算结果作为参数传入，最后将其结果汇总为单个返回值。
           例：arr.reduce((a,b) => a+b, 0); // 0表示accumulator的初始值
         slice() 用来截取数组，左闭右开，索引可以为负。

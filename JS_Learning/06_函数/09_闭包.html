@@ -21,7 +21,7 @@
       /* 为了防止被修改，num不想成为全局变量，但是需要记录函数的调用次数，
        所以将num写在outer中，函数以及num++写在返回函数中。 */
       function outer() {
-        let num = 0;    // num位于outer函数作用域中
+        let num = 0; // num位于outer函数作用域中
         return () => {
           num++;
           console.log(num);
@@ -29,11 +29,11 @@
       }
       // 对newFn而言，每调用一次newFn，num都会++。
       let newFn = outer(); // 独立闭包
-      newFn();
-      newFn();
+      newFn(); // 1
+      newFn(); // 2
       // 直接调用每次都会新建一个num，这样就失效了
-      outer()();
-      outer()();
+      outer()(); // 1
+      outer()(); // 1
     </script>
   </head>
   <body></body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 如果在组件中定义了template，则会优先使用template作为模板，并且根元素中的内容会被全部替换。 -->
+    </div>
+    <script>
+      // 编写Vue
+      // 创建一个根组件，vue3中组件就是一个普通的js对象
+      // 组件 -> 组件实例 -> 虚拟DOM -> DOM
+      const Root = {
+        // data 是一个函数，需要一个对象作为返回值
+        data() {
+          // data返回的对象中的属性会自动添加到组件实例中
+          return {
+            message: "vue",
+            count: 0,
+          };
+        },
+
+        // 在模板中，可以直接访问组件实例中的属性，{{属性名}}
+        template:
+          "<h1>Vue {{message}}</h1> <button @click='count++'>click me</button> count:{{count}}",
+      };
+
+      //   // 创建app实例
+      //   const app = Vue.createApp(Root);
+      //   // 将实例在页面中挂载
+      //   app.mount("#app");
+      Vue.createApp(Root).mount("#app"); // 更简便
+    </script>
+  </body>
+</html>

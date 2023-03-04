@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 需要在console中检验 -->
+    <script>
+      var name = "global";
+      var obj = {
+        name: "local",
+        foo: function () {
+          this.name = "foo";
+        }.bind(window),
+      };
+      var bar = new obj.foo();
+      setTimeout(function () {
+        console.log(3, window.name);
+      }, 0);
+
+      console.log(1, bar);
+
+      var bar3 = (bar2 = bar);
+      bar2.name = "foo2";
+      console.log(2, bar3.name);
+    </script>
+  </body>
+</html>
+
+<!-- new命令的作用就是执行构造函数，返回一个实例对象。在1中，由于bar是obj对象的一个实例，所以bar拥有了this指向的name -->
+<!-- setTimeout会在正常执行结束后再执行其中的handler，等待时间为第二个参数timeout，单位ms -->

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 010 伪类选择器 -->
+    <style>
+      /* 将所有偶数（even）背景颜色设置为红色，奇数（odd）不变 */
+      li:nth-child(even) {
+        background-color: rgb(255, 0, 0);
+      }
+      /* 将第三个li标签的背景颜色设置为黄色 */
+      li:nth-child(3) {
+        background-color: yellow;
+      }
+    </style>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+
+    <!-- 011 伪元素选择器 为div添加一个后伪元素-->
+    <style type="text/css">
+      .css011::after {
+        /* 必须要为content初始化，否则不会生成伪元素！ */
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: rgb(255, 0, 0);
+        /* 设置了宽和高，那么便默认为块级元素，如果不写是不会显示出来的！ */
+        display: block;
+      }
+    </style>
+    <div class="css011"></div>
+    <div class="css011"></div>
+
+    <!-- 012 圆 半径50px，边框1px的黑色实线 -->
+    <style>
+      .css012 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        border-radius: 50px;
+      }
+    </style>
+    <div class="css012"></div>
+
+    <!-- 013 设置盒子宽高 -->
+    <style>
+      .css013 {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        margin: 10px;
+      }
+    </style>
+    <div class="css013"></div>
+
+    <!-- 014 浮动和清除浮动 div元素中left类和right类向左浮动，且清除父级div元素内部的浮动-->
+    <style>
+      .left {
+        width: 100px;
+        height: 100px;
+        float: left;
+      }
+      .right {
+        width: 100px;
+        height: 100px;
+        float: left;
+      }
+      .css014 {
+        clear: both;
+        /* 高度坍塌，需要给父盒子一个高度 */
+        height: 100px;
+      }
+    </style>
+    <div class="css014">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+
+    <!-- 015 固定定位 固定在视口(viewport)的左上角-->
+    <style>
+      .css015 {
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+      }
+    </style>
+    <div class="css015"></div>
+
+    <!-- 018 css单位一  div中宽度和高度设置为自身字体大小的4倍-->
+    <style>
+      .css018 {
+        /* em 是相对于父级元素字体大小的单位 */
+        width: 4em;
+        height: 4em;
+      }
+    </style>
+    <div class="css018">hhh</div>
+
+    <!-- 019 css单位二 设置为html根元素字体大小的4倍 -->
+    <style>
+      .css019 {
+        /* rem 是相对于根元素字体大小的单位 */
+        width: 4rem;
+        height: 4rem;
+      }
+    </style>
+    <div class="css019">hhh</div>
+
+    <!-- 075 文字颜色 使用嵌入样式将所有p改成红色 -->
+    <p style="color:red">欢迎来到牛客网</p>
+    <p style="color:red">在这里，我们为你提供了IT名企的笔试面试题库</p>
+    <pstyle="color:red">在这里，我们以题会友</p>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../JS_package/jquery-3.6.3.min.js"></script>
+  </head>
+  <body>
+    <button class="btn">click me</button>
+    <div></div>
+    <script>
+      /* 
+        引入jQuery库，其实就是添加了一个新的函数$(jQuery)
+            - $ 是jQuery的核心函数，jQuery的所有功能都是通过该函数来进行的
+            - 核心函数的功能：
+                1. 当作工具类使用
+                2. 当做函数使用:
+                - 函数作为$的参数（会在文档加载完毕才执行，相当于document.addEventListener("DOMContentLoaded", funciton(){})）
+                - 选择器字符串作为$的参数（相当于document.querySelectorAll() 注意：$查询到的不是原生DOM对象，而是jQuery包装过的jQuery对象）
+                    jQuery对象命名时一般以$开头加以区分。它为我们提供了许多DOM操作，但是不可以直接调用原生DOM对象的方法。
+                - DOM对象作为$的参数（将DOM对象转换为jQuery对象）
+                - HTML代码作为$的参数（根据HTML代码创建元素）
+        */
+      var num = 10;
+      console.log($.isFunction(num)); // false
+
+      $(function () {
+        console.log("$");
+      });
+      console.log("_$"); // 比$先执行，因为$在文档加载完毕才执行
+
+      $(".btn").click(function () {
+        var btn = document.querySelector(".btn"); // [object HTMLButtonElement]
+        var $btn = $(".btn"); // [object Object]
+
+        var $h1 = $("<h1>Giegie~</h1>");
+        $("div").append($h1);
+      });
+    </script>
+  </body>
+</html>

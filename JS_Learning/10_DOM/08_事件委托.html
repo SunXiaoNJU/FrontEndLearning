@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" id="btn" value="add" />
+    <ul id="ul1">
+      <li>li 1</li>
+      <li>li 2</li>
+      <li>li 3</li>
+    </ul>
+    <script>
+      let btn = document.querySelector("#btn");
+      let ul1 = document.querySelector("#ul1");
+      let num = ul1.querySelectorAll("li").length;
+      /*  
+     如果给每一个li元素都绑定事件过于繁琐，可以通过事件委托来实现 
+     适合事件委托的事件有：click，mousedown，mouseup，keydown，keyup，keypress
+     */
+      // 事件委托，向父级元素添加事件，再匹配目标元素
+      ul1.addEventListener("click", function (e) {
+        // 兼容性
+        e = e || window.event;
+        const target = e.srcElement || e.target;
+        if (target.nodeName.toLowerCase() === "li")
+          console.log(target.textContent);
+      });
+
+      btn.addEventListener("click", () => {
+        num++;
+        let li = document.createElement("li");
+        li.textContent = `li ${num}`;
+        ul1.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
