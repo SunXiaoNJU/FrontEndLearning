@@ -148,3 +148,15 @@ console.log(a.x, this); // undefined {} */
 // // string -> ASCII
 // console.log("b".charCodeAt() - "a".charCodeAt());
 
+// let obj = {
+//   "-1.": -1,
+//   "0.": 0,
+//   "1.": 1,
+// };
+// for (const key in obj) {
+//   if (Object.hasOwnProperty.call(obj, key)) {
+//     const element = obj[key];
+//     // ~~转换成整数
+//     console.log(~~key, element);
+//   }
+// }

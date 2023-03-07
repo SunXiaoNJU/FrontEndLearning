@@ -5,36 +5,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./CSS/all.css" />
     <style>
+      body {
+        /* 原本 1em = 16px，现在 1em = 10px 方便简化 */
+        font-size: 62.5%;
+      }
       .border {
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 0 10px 10px;
+        border-width: 0 100px 100px;
         border-color: transparent transparent green;
         position: relative;
+        float: left;
       }
       .border::after {
         position: absolute;
         content: "";
         border-style: solid;
-        border-width: 0 6px 6px;
+        border-width: 0 60px 60px;
         border-color: transparent transparent white;
-        top: 1.5px;
-        left: -6px;
+        top: 25px;
+        left: -60px;
+      }
+      .box1 {
+        /* 设置width height为盒子的属性而不是内容的属性 */
+        box-sizing: border-box;
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        background-color: rgba(173, 255, 170, 0.6);
+        border: 5px solid turquoise;
+        margin: 1em;
+        /* 处理溢出overflow: visible可见 hidden隐藏 scroll双向滚动条 auto根据需要生成滚动条*/
+        overflow: auto;
+        float: left;
+      }
+      .box2 {
+        width: 50px;
+        height: 400px;
+        background-color: tomato;
+        margin: 0 auto;
+        /* display设置元素的类型：inline行内元素、block块元素、inline-block行内块（尽量少用）
+        none隐藏元素（不占位置）—— visibility：hidden（隐藏，但占位置）
+        */
+        display: block;
+      }
+      i {
+        font-size: 10em;
+        border: 1px solid red;
+        margin: 10px;
       }
     </style>
   </head>
   <body>
-    <div id="root" style="border: 1px solid red">
-      <div style="width: 10px; height: 10px; margin: 10px"></div>
-      <div style="width: 10px; height: 10px; margin: 10px"></div>
+    <div class="root" style="border: 1px solid chocolate;float: left;">
+      <div
+        style="
+          width: 10px;
+          height: 10px;
+          margin: 10px;
+          background-color: #bfa;
+        "
+      ></div>
+      <div
+        style="
+          width: 10px;
+          height: 10px;
+          margin: 20px;
+          background-color: blueviolet;
+        "
+      ></div>
     </div>
+
     <div class="border"></div>
 
+    <div class="box1">
+      <div class="box2"></div>
+    </div>
+
+    <!-- 更多见：https://fontawesome.com/search -->
+    <i class="fa-solid fa-dog"></i>
+    <i class="fa-brands fa-bilibili"></i>
+    <i class="fa-regular fa-circle-user"></i>
     <script>
-      let root = document.querySelector("#root");
-      console.log(getComputedStyle(root).height);
+      let root = document.querySelector(".root");
+      console.log(getComputedStyle(root).height, getComputedStyle(root).width);
     </script>
   </body>
 </html>
