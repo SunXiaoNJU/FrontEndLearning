@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border: 1px solid black;
+      height: 100vh;
+      width: 100vw;
+    }
+    thead {
+      background-color: #000;
+      color: #fff;
+    }
+    td {
+      border: 1px solid aqua;
+    }
+  </style>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>HTTP 状态码</th>
+          <th>英文</th>
+          <th>中文</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>100</td>
+          <td>Continue</td>
+          <td>继续。客户端继续其请求</td>
+        </tr>
+        <tr>
+          <td>101</td>
+          <td>Switching Protocols</td>
+          <td>切换协议。服务器根据客户端的请求切换协议。</td>
+        </tr>
+
+        <tr>
+          <td>200</td>
+          <td>OK</td>
+          <td>请求成功。一般用于GET与POST请求</td>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>Created</td>
+          <td>已创建。成功请求并创建了新的资源</td>
+        </tr>
+        <tr>
+          <td>202</td>
+          <td>Accepted</td>
+          <td>已接受。已经接受请求，但未处理完成</td>
+        </tr>
+        <tr>
+          <td>203</td>
+          <td>Non-Authoritative Information</td>
+          <td>非授权信息。</td>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>No Content</td>
+          <td>无内容。服务器成功处理，但未返回内容。</td>
+        </tr>
+        <tr>
+          <td>205</td>
+          <td>Reset Content</td>
+          <td>重置内容。</td>
+        </tr>
+        <tr>
+          <td>206</td>
+          <td>Partial Content</td>
+          <td>部分内容。服务器成功处理了部分GET请求</td>
+        </tr>
+
+        <tr>
+          <td>300</td>
+          <td>Multiple Choices</td>
+          <td>多种选择。</td>
+        </tr>
+        <tr>
+          <td>301</td>
+          <td>Moved Permanently</td>
+          <td>永久移动。请求的资源已被永久的移动到新URI</td>
+        </tr>
+        <tr>
+          <td>302</td>
+          <td>Found</td>
+          <td>临时移动。</td>
+        </tr>
+        <tr>
+          <td>303</td>
+          <td>See Other</td>
+          <td>查看其它地址。使用GET和POST请求查看</td>
+        </tr>
+        <tr>
+          <td>304</td>
+          <td>Not Modified</td>
+          <td>
+            未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。
+          </td>
+        </tr>
+        <tr>
+          <td>305</td>
+          <td>Use Proxy</td>
+          <td>使用代理。所请求的资源必须通过代理访问</td>
+        </tr>
+
+        <tr>
+          <td>400</td>
+          <td>Bad Request</td>
+          <td>客户端请求的语法错误，服务器无法理解</td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>Unauthorized</td>
+          <td>请求要求用户的身份认证</td>
+        </tr>
+        <tr>
+          <td>402</td>
+          <td>Payment Required</td>
+          <td>保留，将来使用</td>
+        </tr>
+        <tr>
+          <td>403</td>
+          <td>Forbidden</td>
+          <td>服务器理解请求客户端的请求，但是拒绝执行此请求</td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>Not Found</td>
+          <td>服务器无法根据客户端的请求找到资源</td>
+        </tr>
+        <tr>
+          <td>405</td>
+          <td>Method Not Allowed</td>
+          <td>客户端请求中的方法被禁止</td>
+        </tr>
+
+        <tr>
+          <td>500</td>
+          <td>Internal Server Error</td>
+          <td>服务器内部错误，无法完成请求</td>
+        </tr>
+        <tr>
+          <td>501</td>
+          <td>Not Implemented</td>
+          <td>服务器不支持请求的功能，无法完成请求</td>
+        </tr>
+        <tr>
+          <td>502</td>
+          <td>Bad Gateway</td>
+          <td>服务器接收到了一个无效的响应</td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>Service Unavailable</td>
+          <td>由于超载或系统维护，服务器暂时的无法处理客户端的请求。</td>
+        </tr>
+        <tr>
+          <td>504</td>
+          <td>Gateway Time-out</td>
+          <td>充当网关或代理的服务器，未及时从远端服务器获取请求</td>
+        </tr>
+        <tr>
+          <td>505</td>
+          <td>HTTP Version not supported</td>
+          <td>服务器不支持请求的HTTP协议的版本，无法完成处理</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

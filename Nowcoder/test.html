@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <style>
+    #span {
+      box-shadow: 2px 2px 2px aqua;
+    }
+    span::selection {
+      color: red;
+    }
+    input {
+      height: 2em;
+    }
+    input::placeholder {
+      color: aqua;
+      font-size: 1.5em;
+    }
+  </style>
+  <body>
+    <input id="input" type="text" placeholder="Input:" />
+    <span id="span"></span>
+
+    <script type="text/javascript">
+      let input = document.querySelector("#input");
+      let span = document.querySelector("#span");
+      input.oninput = function () {
+        span.textContent = input.value;
+      };
+      // 严禁粘贴
+      document.oncopy = (e) => {
+        e.preventDefault();
+      };
+    </script>
+  </body>
+</html>

@@ -160,3 +160,23 @@ console.log(a.x, this); // undefined {} */
 //     console.log(~~key, element);
 //   }
 // }
+
+// Appends new elements to the end of an array, and returns the new length of the array.
+// console.log([].push(...[1, 2, 3])); // 3
+
+// console.log(new Set([0, 2, 2, 0, 0, 5, 9, {}, {}, NaN, NaN]));
+
+// function foo() {
+//   console.log("foo");
+//   clearInterval(id);
+// }
+// id = setInterval(foo, 1000);
+// console.log("1`1");
+
+// let a = [];
+// console.log(a instanceof Array); // true
+// console.log(Array.isArray(a)); // true
+// console.log(Object.prototype.toString.call(a) === "[object Array]"); // true
+// console.log(typeof a === "array"); // false 	typeof a === 'objec
+
+// console.log("\\\\\\".replace(new RegExp("\\\\\\\\", "gi"), "/")); // /\

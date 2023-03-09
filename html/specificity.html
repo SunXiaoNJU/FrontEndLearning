@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* .box的直接子元素span */
+    .box > p {
+      color: aqua;
+    }
+
+    /* div同级且之后的span，不需要紧邻 */
+    div ~ span {
+      color: green;
+    }
+
+    /* div之后紧邻的span */
+    div + span {
+      color: red;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <div>
+        <p>YY</p>
+      </div>
+      <p>XX</p>
+    </div>
+
+    <div>
+      NO.1
+      <div>
+        NO.2
+        <span>NO.3</span>
+        <div>NO.4</div>
+      </div>
+      <span>NO.5</span>
+    </div>
+    <p>冷漠</p>
+    <span>NO.6 </span>
+  </body>
+</html>
