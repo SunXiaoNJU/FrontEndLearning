@@ -11,7 +11,10 @@ void (async function () {
     if (tokens.length === 1) {
       amount = +tokens[0]; // amount转为Number
     } else {
-      acount(amount, tokens); // tokens为object，每一个值为string类型
+      acount(
+        amount,
+        tokens.map((e) => +e)
+      ); // 将tokens中每一个string都转换为number
     }
   }
 })();
@@ -27,7 +30,6 @@ function acount(amount, coins) {
   dp[0] = 0;
   for (let i = 1; i < amount + 1; i++) {
     for (let coin of coins) {
-      coin = +coin; // coin类型不是Number，记得转换
       if (coin <= i) {
         dp[i] = Math.min(dp[i], dp[i - coin] + 1);
       }
