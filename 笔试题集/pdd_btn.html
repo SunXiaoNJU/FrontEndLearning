@@ -1,0 +1,47 @@
+<!-- 详见我的博客 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #box {
+      width: 256px;
+      height: 256px;
+      background-color: #f4f4f4;
+    }
+    #box:hover #btn {
+      display: flex;
+    }
+    #btn {
+      display: none;
+      border: 1px solid black;
+      border-radius: 15px;
+      padding: 5px;
+      width: 80px;
+      height: 15px;
+      background-color: white;
+      justify-content: center;
+      align-items: center;
+      transform: translate(82px, 114.5px);
+    }
+  </style>
+  <body>
+    <div id="box"><div id="btn">quick btn</div></div>
+  </body>
+  <script>
+    const box = document.querySelector("#box");
+    const btn = document.querySelector("#btn");
+
+    box.addEventListener("click", () => {
+      alert("box click");
+    });
+    btn.addEventListener("click", (e) => {
+      alert("quick btn click");
+      e.stopPropagation();
+    });
+  </script>
+</html>
