@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-size: 62.5%;
+    }
+    .demo {
+      position: relative;
+      width: 20em;
+      height: 4em;
+      line-height: 2em;
+      overflow: hidden;
+      white-space: nowrap;
+      /* text-overflow并不会强制“溢出”事件的发生，因此为了让文本能溢出容器，
+      需要在元素上添加：overflow 和 white-space 这两个属性。*/
+      text-overflow: ellipsis;
+    }
+    .demo::after {
+      position: absolute;
+      content: "...";
+      bottom: 0;
+      right: 0;
+      padding-right: 1em;
+    }
+  </style>
+  <body>
+    <div class="demo">
+      哈哈哈哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或
+    </div>
+  </body>
+</html>

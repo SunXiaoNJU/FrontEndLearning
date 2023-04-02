@@ -1,3 +1,5 @@
 {
-    "open-in-browser.default": "Chrome"
+  "open-in-browser.default": "Chrome",
+  "git.ignoreLimitWarning": true,
+  "editor.formatOnSave": true
 }

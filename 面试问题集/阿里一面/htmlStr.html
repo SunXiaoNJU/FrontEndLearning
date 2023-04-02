@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn1">Function 1</button>
+    <button id="btn2">Function 2</button>
+    <div class="img_test"></div>
+    <script>
+      /* 
+      需求：根据HTML的字符串获取其中a和img的url 
+      */
+      let htmlStr = `<p><a href="../pic/a girl.jpg"><img src="../pic/girl.jpg" alt="jpg" /></a></p>`;
+      let img_new = document.createElement("img");
+
+      // function 1 在浏览器中会自动将其转换成绝对地址，但是innerHTML存在一定的安全风险与性能问题
+      function fetchUrl(htmlStr) {
+        // 创建一个DOM元素
+        var div = document.createElement("div");
+        // 将HTML字符串插入DOM元素中
+        div.innerHTML = htmlStr;
+        // 获取a标记
+        var a = div.querySelector("a");
+        return a.href;
+      }
+
+      let btn1 = document.querySelector("#btn1");
+      btn1.onclick = function () {
+        img_new.src = fetchUrl(htmlStr);
+        console.log(fetchUrl(htmlStr));
+      };
+
+      // function 2 通过正则表达式来获取
+      function fetchUrl_regex(htmlStr) {
+        let srcRegex = /<img.*?src="(.*?)"/;
+        return htmlStr.match(srcRegex)[1];
+      }
+
+      let btn2 = document.querySelector("#btn2");
+      btn2.onclick = function () {
+        img_new.src = fetchUrl_regex(htmlStr);
+        console.log(fetchUrl_regex(htmlStr));
+      };
+
+      let div_img = document.querySelector(".img_test");
+      div_img.appendChild(img_new);
+    </script>
+  </body>
+</html>

@@ -21,23 +21,28 @@ void (async function () {
     if (tokens.length === 2) {
       N = +tokens[0];
       M = +tokens[1];
-    } else arr = tokens.map((e) => +e);
-  }
-  // 存放余数出现的次数，余数0初始值为1，因为自身可以直接整除
-  let map = new Map();
-  map.set(0, 1);
-  // 思路：减去前面余数相同的部分剩下的就可以整除了
-  let sumTmp = 0,
-    ans = 0;
-  for (let i = 0; i < N; i++) {
-    sumTmp += arr[i];
-    let remainder = sumTmp % M;
-    if (!map.get(remainder)) {
-      map.set(remainder, 1);
     } else {
-      ans += map.get(remainder);
-      map.set(remainder, map.get(remainder) + 1);
+      arr = tokens.map((e) => +e);
+      solution();
     }
   }
-  console.log(ans);
+
+  function solution() {
+    // 利用对象存放余数出现的次数，余数0初始值为1，因为自身可以直接整除
+    let record = { 0: 1 };
+    // 思路：减去前面余数相同的部分剩下的就可以整除了
+    let sumTmp = 0,
+      ans = 0;
+    for (let i = 0; i < N; i++) {
+      sumTmp += arr[i];
+      let remainder = sumTmp % M;
+      if (!record[remainder]) {
+        record[remainder] = 1;
+      } else {
+        ans += record[remainder];
+        record[remainder]++;
+      }
+    }
+    console.log(ans);
+  }
 })();

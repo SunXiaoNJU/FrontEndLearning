@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/all.css" />
+    <style>
+      body {
+        /* 原本 1em = 16px，现在 1em = 10px 方便简化 */
+        font-size: 62.5%;
+      }
+      .triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 100px 100px;
+        border-color: transparent transparent green;
+        position: relative;
+        float: left;
+      }
+      .triangle::after {
+        position: absolute;
+        content: "";
+        border-style: solid;
+        border-width: 0 60px 60px;
+        border-color: transparent transparent white;
+        top: 25px;
+        left: -60px;
+      }
+      .box1 {
+        /* 设置width height为盒子的属性而不是内容的属性 */
+        box-sizing: border-box;
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        background-color: rgba(173, 255, 170, 0.6);
+        border: 5px solid turquoise;
+        margin: 1em;
+        /* 处理溢出overflow: visible可见 hidden隐藏 scroll双向滚动条 auto根据需要生成滚动条*/
+        overflow: auto;
+        float: left;
+      }
+      .box2 {
+        width: 50px;
+        height: 400px;
+        background-color: tomato;
+        margin: 0 auto;
+        /* display设置元素的类型：inline行内元素、block块元素、inline-block行内块（尽量少用）
+            none隐藏元素（不占位置）—— visibility：hidden（隐藏，但占位置）
+            */
+        display: block;
+      }
+      i {
+        font-size: 10em;
+        margin: 10px;
+
+        animation: 2500ms bigger 1000ms;
+      }
+      i:hover {
+        /* transiton过渡 */
+        transition-property: all;
+        transition-duration: 314ms;
+        transition-timing-function: linear;
+        transition-delay: 314ms;
+        font-size: 12em;
+        color: aqua;
+      }
+      /* animation动画 */
+      @keyframes bigger {
+        0% {
+          transform: scale(1, 1);
+          color: darkcyan;
+        }
+        50% {
+          transform: scale(1.2, 0.6);
+          color: #314;
+        }
+        100% {
+          transform: scale(1, 1);
+          color: burlywood;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root" style="border: 1px solid chocolate; float: left">
+      <div
+        style="width: 10px; height: 10px; margin: 10px; background-color: #bfa"
+      ></div>
+      <div
+        style="
+          width: 10px;
+          height: 10px;
+          margin: 20px;
+          background-color: blueviolet;
+        "
+      ></div>
+    </div>
+
+    <div class="triangle"></div>
+
+    <div class="box1">
+      <div class="box2"></div>
+    </div>
+
+    <!-- src: 把资源嵌入页面中
+    	href: 与资源建立连接  	-->
+    <div class="demo">
+      <img src="#" alt="img" />
+      <audio controls src="./Pianist/audio/piano/01-A    -大字2组.mp3"></audio>
+      <video controls src="#"></video>
+      <embed src="https://sunxiaonju.wordpress.com/" />
+
+      <a href="https://sunxiaonju.wordpress.com/">SunXiao's blog</a>
+      <link rel="stylesheet" href="#" />
+    </div>
+
+    <!-- 输入框 -->
+    <textarea
+      name="xxx"
+      id="xxx"
+      cols="30"
+      rows="10"
+      placeholder="write whatever you want to write"
+    ></textarea>
+
+    <!-- 更多见：https://fontawesome.com/search -->
+    <i class="fa-solid fa-dog"></i>
+    <i class="fa-brands fa-bilibili"></i>
+    <i class="fa-regular fa-circle-user"></i>
+  </body>
+
+  <script>
+    let root = document.querySelector(".root");
+    console.log(getComputedStyle(root).height, getComputedStyle(root).width);
+  </script>
+</html>

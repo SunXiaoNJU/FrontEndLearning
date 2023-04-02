@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is a client</h1>
+    <button id="loadBtn">CLICK ME TO LOAD DATA</button>
+    <script>
+      const btn = document.querySelector("#loadBtn");
+      btn.onclick = () => {
+        // 向服务器发送请求
+        // 创建一个新的xhr对象，xhr表示请求信息
+        const xhr = new XMLHttpRequest();
+        // 设置请求信息
+        xhr.open("GET", "http://localhost:3000/students");
+        // 发送请求
+        xhr.send({
+          status: "ok",
+          data: 114514,
+        });
+      };
+    </script>
+  </body>
+</html>
