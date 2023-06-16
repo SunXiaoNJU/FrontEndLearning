@@ -382,100 +382,111 @@ C的话拿到的是新对象以及往新对象里面新增的d变量。*/
 // const result = addToList("nowcoder", ["hello"]);
 // console.log(result); // 2
 
-// setTimeout(() => {
-//   console.log(2);
-// });
-// Promise.resolve().then(() =>
-//   setTimeout(() => {
-//     console.log(4);
-//   })
-// );
-// setTimeout(() => {
-//   console.log(6);
-// });
+/* 
+setTimeout(() => {
+  console.log(2);
+});
+Promise.resolve().then(() =>
+  setTimeout(() => {
+    console.log(4);
+  })
+);
+setTimeout(() => {
+  console.log(6);
+}); */
 /* 264  4所在promise先将箭头函数加入微任务队列，然后再执行该函数（此时2和6所在的setTimeout已经被加入宏任务队列），
 最后4所在的setTimeout被加入宏任务队列。因此执行结果为264 */
 
-// setTimeout(() => {
-//   console.log(2);
-// });
-// Promise.resolve().then(
-//   setTimeout(() => {
-//     console.log(4);
-//   })
-// );
-// setTimeout(() => {
-//   console.log(6);
-// });
+/* 
+setTimeout(() => {
+  console.log(2);
+});
+Promise.resolve().then(
+  setTimeout(() => {
+    console.log(4);
+  })
+);
+setTimeout(() => {
+  console.log(6);
+}); */
 /* 246  2、4、6依次被加入宏任务队列，因此执行结果为246 */
 
-// 命名计时器
-// console.time("my operation");
-// for (let i = 0; i < 10; i++) {
-//   setTimeout(function () {
-//     console.log(i); // 0~9
-//   }, 100);
-// }
-// console.timeEnd("my operation");
+/* // 命名计时器
+console.time("my operation");
+for (let i = 0; i < 10; i++) {
+  setTimeout(function () {
+    console.log(i); // 0~9
+  }, 100);
+}
+console.timeEnd("my operation"); */
 
-// var 和 let 对于输出结果的不同影响
-// for (var i = 0; i < 9; i++) {
-//   setTimeout(function () {
-//     console.log(i); // 10个10
-//   }, 0);
-// }
+/* // var 和 let 对于输出结果的不同影响
+for (var i = 0; i < 9; i++) {
+  setTimeout(function () {
+    console.log(i); // 10个10
+  }, 0);
+} */
 
-// setTimeout(() => {
-//   console.log(1);
-// });
-// new Promise(function executor(resolve) {
-//   console.log(2);
-//   resolve();
-//   console.log(3);
-// }).then(() => {
-//   console.log(4);
-// });
-// console.log(5);
-// 输出顺序：2 3 5 4 1
+/* 
+setTimeout(() => {
+  console.log(1);
+});
+new Promise(function executor(resolve) {
+  console.log(2);
+  resolve();
+  console.log(3);
+}).then(() => {
+  console.log(4);
+});
+console.log(5);
+// 输出顺序：2 3 5 4 1 */
 
+/* 
 // 敏感词过滤
-// function filterSensitiveWord(str, arr) {
-//   arr.forEach((element) => {
-//     const reg = new RegExp(`${element}`, "g"); // 利用正则表达式实现敏感词筛选
-//     str = str.replace(reg, "*".repeat(element.length));
-//   });
-//   return str;
-// }
-// console.log(filterSensitiveWord("want to die, fuck, sexy women", ["die", "ex", "uc"]));
+function filterSensitiveWord(str, arr) {
+  arr.forEach((element) => {
+    const reg = new RegExp(`${element}`, "g"); // 利用正则表达式实现敏感词筛选
+    str = str.replace(reg, "*".repeat(element.length));
+  });
+  return str;
+}
+console.log(filterSensitiveWord("want to die, fuck, sexy women", ["die", "ex", "uc"]));
 
-// let res = [1, 2, 3].findIndex((e) => e === 2); // findIndex参数为函数
+let res = [1, 2, 3].findIndex((e) => e === 2); // findIndex参数为函数
+*/
 
+/* 
 // 插入排序
-// function insertSort(arr) {
-//   let preIndex, current;
-//   for (let i = 1; i < arr.length; i++) {
-//     preIndex = i - 1;
-//     current = arr[i];
-//     while (preIndex >= 0 && arr[preIndex] > current) {
-//       arr[preIndex + 1] = arr[preIndex];
-//       preIndex--;
-//     }
-//     arr[preIndex + 1] = current;
-//   }
-//   return arr;
-// }
+function insertSort(arr) {
+  let preIndex, current;
+  for (let i = 1; i < arr.length; i++) {
+    preIndex = i - 1;
+    current = arr[i];
+    while (preIndex >= 0 && arr[preIndex] > current) {
+      arr[preIndex + 1] = arr[preIndex];
+      preIndex--;
+    }
+    arr[preIndex + 1] = current;
+  }
+  return arr;
+} 
+*/
 
+/* 
 // 快速排序
-// function quickSort(arr) {
-//   if (arr.length <= 1) return arr;
-//   let mid = [],
-//     left = [],
-//     right = [];
-//   let standard = arr[0];
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] === standard) mid.push(standard);
-//     else if (arr[i] < standard) left.push(arr[i]);
-//     else right.push(arr[i]);
-//   }
-//   return [...quickSort(left), ...mid, ...quickSort(right)];
-// }
+function quickSort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = [],
+    left = [],
+    right = [];
+  let standard = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === standard) mid.push(standard);
+    else if (arr[i] < standard) left.push(arr[i]);
+    else right.push(arr[i]);
+  }
+  return [...quickSort(left), ...mid, ...quickSort(right)];
+} 
+*/
+
+// console.log("%c%s", "font-size:24px;color:red", "Hello");

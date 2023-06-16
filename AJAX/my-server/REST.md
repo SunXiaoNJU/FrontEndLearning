@@ -3,6 +3,7 @@
 ## defintion
 
 REST: REpresentational State Transfer
+REST 风格的服务器是无状态的服务器，不会存储用户的信息数据。
 
 ## feature
 

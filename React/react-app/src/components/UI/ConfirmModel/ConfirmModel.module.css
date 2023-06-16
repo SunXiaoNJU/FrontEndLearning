@@ -1,0 +1,50 @@
+.confirmModel {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 200px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 25px gray;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 20px;
+}
+.confirmText {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: red;
+}
+.buttonBlock {
+  flex: auto; /* 自动撑满flex */
+  display: flex;
+  justify-content: flex-end;
+}
+.buttonBlock button {
+  width: 60px;
+  margin: 0 10px;
+  border: 0;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.buttonBlock button:hover {
+  box-shadow: 0 0 10px gray;
+}
+.confirmButton {
+  background-color: rgb(243, 70, 70);
+  color: white;
+}
+
+.cancelButton {
+  background-color: yellow;
+  color: black;
+}

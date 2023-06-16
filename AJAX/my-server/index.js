@@ -22,7 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // 设置响应头，允许本地5500端口跨域访问
 app.use((req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5500");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 });
 
 /* 

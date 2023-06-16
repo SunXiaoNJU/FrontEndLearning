@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Footer</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html,
+    body {
+      height: 100%;
+    }
+    #wrap {
+      min-height: 100%;
+    }
+    #main {
+      text-align: center;
+    }
+    #footer {
+      height: 50px;
+      line-height: 50px;
+      margin-bottom: -50px;
+      text-align: center;
+      background-color: pink;
+      /* bottom: 50px; */
+    }
+  </style>
+  <body>
+    <div id="wrap">
+      <div id="main">
+        <p>
+          粘连布局，如果页面内容不够长，页脚块粘贴在视图底部；如果内容足够长，页脚块会被内容向下推送。<br />
+          footer必须是一个独立结构，与wrap没有任何嵌套关系。<br />
+          footer需要使用margin为负来确定自己的位置。<br />
+          wrap区域必须被自己的子元素撑开。<br />
+          如果需要在wrap外添加其他结构，则必须定位。
+        </p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+        <p>hh</p>
+      </div>
+    </div>
+    <div id="footer">Sticky Footer</div>
+  </body>
+</html>

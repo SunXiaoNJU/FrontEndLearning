@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>axios使用演示</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>axios</h1>
+    <button id="postBtn">CLICK ME to post</button>
+    <button id="getBtn">CLICK ME to get</button>
+    <script>
+      const postBtn = document.querySelector("#postBtn");
+      const getBtn = document.querySelector("#getBtn");
+
+      postBtn.onclick = () => {
+        axios({
+          method: "post",
+          url: "http://localhost:3000",
+          data: {
+            name: "sunxiao",
+            age: 20,
+            gender: "man",
+          },
+        })
+          .then((res) => {
+            // axios默认只会在状态码为2xx时才会调用then
+            console.log(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+
+      getBtn.onclick = () => {
+        axios({
+          method: "get",
+          url: "http://localhost:3000",
+        })
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/jsmind@0.5/style/jsmind.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/jsmind@0.5/es6/jsmind.js"
+    ></script>
+  </head>
+  <body>
+    <div id="jsmind_container"></div>
+
+    <script type="text/javascript">
+      var mind = {
+        meta: {
+          name: "jsMind-demo",
+          author: "sunxiao",
+          version: "1.0",
+        },
+        format: "node_array",
+        data: [
+          { id: "root", isroot: true, topic: "jsMind" },
+
+          {
+            id: "sub1",
+            parentid: "root",
+            topic: "sub1",
+            direction: "right",
+          },
+          { id: "sub11", parentid: "sub1", topic: "sub11" },
+          { id: "sub12", parentid: "sub1", topic: "sub12" },
+          { id: "sub13", parentid: "sub1", topic: "sub13" },
+
+          {
+            id: "sub2",
+            parentid: "root",
+            topic: "sub2",
+            direction: "right",
+          },
+          { id: "sub21", parentid: "sub2", topic: "sub21" },
+          { id: "sub22", parentid: "sub2", topic: "sub22" },
+
+          {
+            id: "sub3",
+            parentid: "root",
+            topic: "sub3",
+            direction: "right",
+          },
+        ],
+      };
+
+      var options = {
+        container: "jsmind_container",
+        theme: "primary",
+        editable: true,
+      };
+      var jm = new jsMind(options);
+      jm.show(mind);
+
+      jm.view.add_event("document", "mouseover", (event) => {
+        console.log(event.target);
+      });
+      // 创建弹窗元素并添加到文档中
+      // var popup = document.createElement("div");
+      // popup.style.display = "flex";
+      // popup.style.position = "absolute";
+      // popup.style.backgroundColor = "blue";
+      // document.body.appendChild(popup);
+
+      // // 鼠标移动到节点上出现窗口
+      // jm.view.add_event("sub13", "mouseover", function (e) {
+      //   console.log(jm.get_data());
+      //   var node = e.target;
+      //   var rect = node.getBoundingClientRect();
+      //   var x = rect.left + rect.width + 10;
+      //   var y = rect.top;
+      //   popup.style.left = x + "px";
+      //   popup.style.top = y + "px";
+      //   popup.style.display = "block";
+      // });
+
+      // // 点击空白处窗口消失
+      // jm.view.add_event(jm.view, "click", function (e) {
+      //   console.log(123);
+      //   popup.style.display = "none";
+      // });
+    </script>
+  </body>
+</html>

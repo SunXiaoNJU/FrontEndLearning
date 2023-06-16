@@ -43,9 +43,14 @@
       2. 需要一个对象作为参数，在对象中可以通过对象的属性来对日期的格式进行配置。
         dateStyle 日期风格
         timeStyle 时间的风格
+        year、month、day 可以提供单独设置
       更多的参数定制查看mdn
   */
   console.log(
-    d.toLocaleString("en-US", { dateStyle: "full", timeStyle: "long" })
+    d.toLocaleString("zh-CN", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
   );
 </script>

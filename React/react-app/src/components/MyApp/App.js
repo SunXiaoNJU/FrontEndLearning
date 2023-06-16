@@ -1,6 +1,7 @@
+import UseProps from "../UseProps";
 import logo from "../pic/logo.svg";
 // 外部样式表 CSS Module
-import appStyle from "./App.module.css";
+import appCSS from "./App.module.css";
 import { useState } from "react";
 
 // 使用 rfc快捷键 可以一键生成函数式组件~ （已安装ES7+ React/Redux/React-Native snippets插件）
@@ -17,11 +18,11 @@ export default function App() {
   };
 
   return (
-    <div className={appStyle.App}>
-      <header className={appStyle.App_header}>
-        <img src={logo} className={appStyle.App_logo} alt="logo" />
+    <div className={appCSS.App}>
+      <header className={appCSS.App_header}>
+        <img src={logo} className={appCSS.App_logo} alt="logo" />
         <p
-          className={`${appStyle.p_style} ${p_color ? appStyle.color_red : ""}`}
+          className={`${appCSS.p_style} ${p_color ? appCSS.color_red : ""}`}
           onClick={clickHandler}
           style={{
             borderRadius: "3vh",
@@ -31,13 +32,14 @@ export default function App() {
           App.js
         </p>
         <a
-          className={appStyle.App_link}
+          className={appCSS.App_link}
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
         </a>
+        <UseProps />
       </header>
     </div>
   );

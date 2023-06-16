@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is a client</h1>
+    <button id="loadBtn">CLICK ME TO LOAD DATA</button>
+    <div class="root"></div>
+
+    <script>
+      const btn = document.querySelector("#loadBtn");
+      const root = document.querySelector(".root");
+
+      btn.onclick = () => {
+        // 创建一个新的xhr对象，xhr表示请求信息
+        const xhr = new XMLHttpRequest();
+        // 设置响应体的类型，设置后会自动对数据进行类型转换
+        xhr.responseType = "json";
+        // 设置加载事件
+        xhr.onload = function () {
+          // 响应状态码进行状态判断
+          if (xhr.status === 200) {
+            const res = xhr.response;
+            // 判断数据是否正确
+            if (res.status === "ok") {
+              const ul = document.createElement("ul");
+              root.appendChild(ul);
+              for (const item of res.data) {
+                ul.insertAdjacentElement(
+                  "beforeend",
+                  `<li>${item.name} - ${item.age} - ${item.gender}</li>`
+                );
+              }
+            }
+          }
+        };
+        // 设置请求信息
+        xhr.open("get", "http://localhost:3000/students");
+        // 发送请求
+        xhr.send({
+          status: "ok",
+          data: 114514,
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -63,3 +63,4 @@ fsPromise
 fsPromise.appendFile(thisPath, "// append successfully").then((res) => {
   console.log(res);
 });
+// append successfully

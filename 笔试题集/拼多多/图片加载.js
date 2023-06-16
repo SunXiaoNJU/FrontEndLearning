@@ -3,18 +3,22 @@
 function loadImg(url, timeout) {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.src = url;
+
     const timeoutId = setTimeout(() => {
       reject(`${url} 超时${timeout}ms`);
     }, timeout);
-    img.onload = () => {
-      clearTimeout(timeoutId);
-      resolve(url);
-    };
+
     img.onerror = () => {
       clearTimeout(timeoutId);
       reject(`${url} load fail`);
     };
+
+    img.onload = () => {
+      clearTimeout(timeoutId);
+      resolve(url);
+    };
+
+    img.src = url;
   });
 }
 

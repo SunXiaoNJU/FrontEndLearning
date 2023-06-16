@@ -14,10 +14,11 @@
     例如：res.setHeader("Access-Control-Allow-Origin", url)
     Access-Control-Allow-Origin  允许的请求地址     "*"表示全部允许，指定的话只能设置一个，如果多个可以存放在数组中动态设置
     Access-Control-Allow-Methods 允许的请求方式     第二个参数是方法名，例如:"GET,POST"
-    Access-Control-Allow-Headers 允许传递的请求头    例如:"Content-type"
+    Access-Control-Allow-Headers 允许传递的请求头    例如:"Content-Type"
 
 ## 可选方案
 
     1. XMLHTTPRequest (xhr) 已经不怎么用了
     2. Fetch
     3. Axios 主要
+    4. Alova（学习）

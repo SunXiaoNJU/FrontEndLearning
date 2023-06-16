@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is a client</h1>
+    <button id="loadBtn">CLICK ME TO LOAD DATA</button>
+    <button id="postBtn">CLICK ME TO POST DATA</button>
+    <button id="cancelBtn">Cancel</button>
+    <script>
+      const loadBtn = document.querySelector("#loadBtn");
+      const postBtn = document.querySelector("#postBtn");
+      const cancelBtn = document.querySelector("#cancelBtn");
+
+      let controller;
+      // 手动执行abort
+      cancelBtn.onclick = () => {
+        controller && controller.abort();
+      };
+
+      loadBtn.onclick = () => {
+        // 创建终止请求控制器AbortController
+        controller = new AbortController();
+        // 这样就可以将请求超时的fetch终止掉，暂时设置成3000ms
+        setTimeout(controller.abort(), 3000);
+
+        // fetch 采用Promise API 是原生JS就支持的Ajax请求方式
+        fetch("http://localhost:3000/students", {
+          // 需要在fetch配置中添加signal来实现控制器
+          signal: controller.signal,
+        })
+          .then((res) => {
+            if (res.status === 200) {
+              // 读取res的JSON格式数据
+              return res.json();
+            } else {
+              // 抛错给catch来处理
+              throw new Error(res.status);
+            }
+          })
+          .then((res) => {
+            if (res.status === "ok") {
+              // write your code
+              console.log(res);
+            }
+          })
+          .catch((error) => {
+            console.error(error, "GET Failed");
+          });
+      };
+
+      postBtn.onclick = () => {
+        controller = new AbortController();
+        setTimeout(controller.abort(), 3000);
+
+        // fetch() 参数分为url和options，options包含各种属性，包括不限于：method、body、headers、cache、priority
+        fetch("http://localhost:3000/students", {
+          method: "post",
+          // 通过body发送数据时必须通过headers来指定请求类型(Content-Type)
+          body: JSON.stringify({
+            name: "sunxiao",
+            age: 18,
+            gender: "man",
+            profession: "front-end engineer",
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          signal: controller.signal,
+        })
+          .then((res) => {
+            if (res.status === "ok") {
+              console.log("File post successfully");
+            } else {
+              throw new Error(res.status);
+            }
+          })
+          .catch((error) => {
+            console.error(error, "POST Failed!");
+          });
+      };
+    </script>
+  </body>
+</html>

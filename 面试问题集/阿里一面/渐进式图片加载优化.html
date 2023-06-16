@@ -6,27 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    svg {
+      filter: blur(10px);
+      opacity: 0.5;
+    }
+    .imgLoaded {
+      width: 400px;
+      height: 500px;
+      filter: drop-shadow(10px 10px 10px gray); /* 滤镜效果 */
+      transition: all 400ms ease-out;
+    }
+    .imgLoaded:hover {
+      width: 420px;
+      height: 520px;
+      box-shadow: 10px 10px 10px gray;
+    }
+  </style>
   <body>
-    <img
-      data-src="./pic/a girl.jpg"
-      alt="loading..."
-    />
+    <svg width="400px" height="500px"></svg>
     <script>
-      /* 对渐进式图片加载进行优化 */
-      const imgs = document.querySelectorAll("img");
-      imgs.forEach((img) => {
-        const src = img.getAttribute("data-src");
-        const xhr = new XMLHttpRequest();
-        xhr.open("get", src, true);
-        xhr.onload = function () {
-          if (this.status === 200) {
-            const blob = this.response;
-            const url = URL.createObjectURL(blob);
-            img.setAttribute("src", url);
-          }
-        };
-        xhr.send();
-      });
+      /* 实现渐进式加载图像的技术：
+		1.使用基本图像：加载一个低分辨率的基本图像，然后使用 JavaScript 或 CSS 逐渐加载高分辨率的版本。
+		2.使用模糊的 SVG 占位符：使用模糊的 SVG 占位符代替图像，在图像加载时逐渐模糊和淡入。
+		3.使用模糊和渐变的图像：加载一张模糊和渐变的版本，然后使用 JavaScript 或 CSS 渐进地加载清晰版本。
+		4.使用渐进式图像格式（如 JPEG 2000、JPEG XR、WebP）：这些格式支持逐渐呈现图像的功能，因此它们可以很好地与渐进式加载一起使用。 
+	  */
+      const img = new Image();
+      img.src = "../../pic/a girl.jpg";
+      img.onload = () => {
+        const svg = document.querySelector("svg");
+        svg.parentNode.replaceChild(img, svg);
+        img.classList.add("imgLoaded"); // 加载后进行渲染
+      };
     </script>
   </body>
 </html>

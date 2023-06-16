@@ -36,6 +36,7 @@
 
       // function 2 通过正则表达式来获取
       function fetchUrl_regex(htmlStr) {
+        // .*? 中 ? 表示非贪婪匹配，可以匹配最近的内容
         let srcRegex = /<img.*?src="(.*?)"/;
         return htmlStr.match(srcRegex)[1];
       }

@@ -20,6 +20,11 @@
   padding: 0.5vmin;
 }
 
+.p_style:hover {
+  padding: 1vmin;
+  transition: padding 300ms 100ms;
+}
+
 .color_red {
   color: red;
 }

@@ -1,4 +1,4 @@
-/* 默认情况下，node中的模块化标准是CommonJS 
+/* 默认情况下，node中的模块化标准是CommonJS
 要想使用ES的模块化，可以采用以下方法：
     - 使用.mjs作为扩展名
     - 修改package.json将模块化规范设置为ES标准（"type":"module"）

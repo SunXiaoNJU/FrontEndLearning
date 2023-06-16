@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>会话存储的演示</title>
+  </head>
+  <body>
+    <h1>sessionStorage</h1>
+    <button id="btn_store">CLICK ME to Store</button>
+    <button id="btn_fetch">CLICK ME to Fetch</button>
+    <hr />
+    <button id="btn_clear">注销</button>
+    <script>
+      const storeBtn = document.querySelector("#btn_store");
+      const fetchBtn = document.querySelector("#btn_fetch");
+      const clearBtn = document.querySelector("#btn_clear");
+
+      storeBtn.onclick = () => {
+        // sessionStorage存储key和value，类型均为string，有效期为当前页面，离开即失效。
+        sessionStorage.setItem("name", "B");
+        sessionStorage.setItem("age", "18");
+        sessionStorage.setItem("gender", "man");
+        console.log(sessionStorage);
+      };
+      fetchBtn.onclick = () => {
+        const name = sessionStorage.getItem("name");
+        const age = sessionStorage.getItem("age");
+        const gender = sessionStorage.getItem("gender");
+        console.log(name, age, gender);
+      };
+      clearBtn.onclick = () => {
+        sessionStorage.clear();
+        location.reload();
+      };
+    </script>
+  </body>
+</html>
