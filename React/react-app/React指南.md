@@ -1,5 +1,9 @@
 # React 指南
 
+## 写在前面
+
+由于 Markdown 格式的限制，自构建的组件直接书写会产生警报，所以我在每个前面都加了\
+
 ## 三个 API
 
 - React.createElement()
