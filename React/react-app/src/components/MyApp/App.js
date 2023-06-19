@@ -1,3 +1,4 @@
+import Counter from "../Counter";
 import UseProps from "../UseProps";
 import logo from "../pic/logo.svg";
 // 外部样式表 CSS Module
@@ -20,6 +21,7 @@ export default function App() {
   return (
     <div className={appCSS.App}>
       <header className={appCSS.App_header}>
+        <Counter />
         <img src={logo} className={appCSS.App_logo} alt="logo" />
         <p
           className={`${appCSS.p_style} ${p_color ? appCSS.color_red : ""}`}

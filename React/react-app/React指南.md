@@ -110,11 +110,11 @@ React.strictMode 开启 react 严格模式，在开发模式下，会主动重�
 
 ### props
 
-以 <Card /> 为例，有两种类型的 props：
+以 <\Card /> 为例，有两种类型的 props：
 
 1. 通过向 Card 后添加对象，然后在 Card.js 中通过 props 接收传过来的数组
-2. 标签体，即 <Card>something</Card>，可以通过 props.children 获取组件的标签体内容
-   注意：使用时 className 会被组件内预设的 className 覆盖，所以需要通过 props 在预设里追加：className={`card ${props.className}`}
+2. 标签体，即 <\Card>something</\Card>，可以通过 props.children 获取组件的标签体内容
+   注意：使用时 className 会被组件内预设的 className 覆盖，所以需要通过 props 在预设里追加：className={\`card ${props.className}\`}
 
 ### event
 
@@ -129,7 +129,7 @@ React.strictMode 开启 react 严格模式，在开发模式下，会主动重�
 2. 清空表单项：将表单数据存储在 state 中，然后将 state 设置为表单项的 value，这样表单项发生变化 state 会随着变化，反之亦然。如此称为双向绑定。
    这样就可以通过将 state 设置为空来实现清空表单项。
 
-3. 删除日志：由于模块化所以数据和页面时绑定的，删除数据时页面也会对应删除，所以我们向每个表单项添加一个 × 的响应函数，
+3. 删除日志：由于模块化所以数据和页面是绑定的，删除数据时页面也会对应删除，所以我们向每个表单项添加一个 × 的响应函数，
    根据 map 提供的 index 来定位对应的对象元素，然后一层一层将函数作为 props 传递下去，删除实现在父组件的数据层。
 
 ### 数据存储与使用
@@ -165,11 +165,11 @@ Context 相当于一个公共的存储空间，我们可以将多个组件中都
 创建的具体例子详见 "./src/store/testContext.js"
 
 使用方法：
-以<A>组件为例，想要获取<App>中的数据
+以<\A>组件为例，想要获取<\App>中的数据
 
 1. 在 A 中导入 context
 2. 在 A 中使用 hook 函数 useContext() 获取到 data，参数即为导入的 context
-3. 在 App 中使用<xxx.Provider value={data}> <A> </xxx.Provider> ，获取数据的子组件 A 必须在其内部。(xxx 为 App 中引入的 context 的名称。)
+3. 在 App 中使用<xxx.Provider value={data}> <\A> </xxx.Provider> ，获取数据的子组件 A 必须在其内部。(xxx 为 App 中引入的 context 的名称。)
 4. 备注：通过 context 获取数据时遵从 就近原则
 
 ## UI
